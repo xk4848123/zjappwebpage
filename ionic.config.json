@@ -1,0 +1,8 @@
+{
+  "name": "zjappwebpage",
+  "app_id": "9cdbe0a6",
+  "type": "ionic-angular",
+  "integrations": {
+    "cordova": {}
+  }
+}
