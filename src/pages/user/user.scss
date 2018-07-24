@@ -1,0 +1,112 @@
+.login{
+    padding:1rem;
+
+    .userimg{
+        text-align: center;
+        
+    }
+    .userimg img{
+        width:5rem;
+        height: 5rem;
+
+        border-radius: 50%;
+    }
+    .login_reg{
+        text-align: center;
+    }
+}
+
+.list-ios[inset]{
+
+    margin:0px!important;
+
+}        
+.transition{
+    background-color: #eeeeee;
+    height: 1rem;
+}
+
+.col_1{
+    background-color: #ffffff;
+    padding: 1.5rem;
+    border-top: 0.2rem solid #ddd;
+    border-bottom: 0.1rem solid #ddd;
+    border-left: 0.1rem solid #ddd;
+    border-right: 0.1rem solid #ddd;
+    border-radius: 0.2rem;
+    text-align: center;
+    font-size: 0.006rem;
+  }
+  .col_2{
+    background-color: #ffffff;
+    padding: 1.5rem;
+    border-top: 0.2rem solid #ddd;
+    border-bottom: 0.1rem solid #ddd;
+    text-align: center;
+    font-size: 0.006rem;
+  }
+  .col_3{
+    background-color: #ffffff;
+    padding: 1.5rem;
+    border-top: 0.2rem solid #ddd;
+    text-align: center;
+    font-size: 0.006rem;
+  }
+  .col_4{
+    background-color: #ffffff;
+    padding: 1.5rem;
+    border-top: 0.1rem solid #ddd;
+    text-align: center;
+    font-size: 0.006rem;
+  }
+  .interval{
+    height: 4rem;
+    text-align: left;
+    text-indent: 1.5rem;
+    line-height: 4rem;
+    font-size: 1.6rem;
+  }
+
+  ion-grid span{
+    width:100%;
+    word-break:keep-all;             /* 不换行 */
+    white-space:nowrap;            /* 不换行 */
+    overflow:hidden;                  /* 内容超出宽度时隐藏超出部分的内容 */
+    text-overflow:ellipsis;            /* 当对象内文本溢出时显示省略标记(...) ；需与overflow:hidden;一起使用。*/
+  }
+
+  ion-grid img{
+      height: 2.6rem;
+      width: 2.6rem;
+      display: block;
+      margin: 0 auto;
+  }
+
+  .avatar{
+    position: relative;
+ 
+  }
+  .rank{
+    font-size: 0.006rem;
+    word-break:keep-all;             /* 不换行 */
+    white-space:nowrap;            /* 不换行 */
+    position:absolute;
+    background-color: #FF9900;
+    padding: 0.1rem;
+    width: 3.5rem;
+    text-align: center;
+    top:5rem;
+    left: 1.25rem;
+    border-radius: 0.5rem;
+
+  }
+  .person{
+    height: 12rem;
+
+  }
+  .headimg{
+      height: 6rem;
+      width: 6rem;
+      border: 0.2rem solid #ddd;
+      border-radius: 50%;
+  }
