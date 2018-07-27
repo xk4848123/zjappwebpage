@@ -23,7 +23,7 @@
              <img style="width: 320px; height: 100px;" src="../assets/imgs/slide03.jpg" />
               <ion-col col-4 *ngFor="let item of rightCate" [navPush]='ProductlistPage' [navParams]="{'id':item['id']}">              
                 
-                    <img [src]="config.imgUrl+item.icon" />
+                    <img [src]="config.domain+item.icon" />
                     <p>{{item.categoryname}}</p>                        
               </ion-col>
           </ion-row>

@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
-
 import { ConfigProvider } from '../../providers/config/config';
 
 import { HttpServicesProvider } from '../../providers/http-services/http-services';
@@ -14,6 +13,7 @@ import { SearchPage } from '../search/search';
 
 //商品详情
 import { PcontentPage } from '../pcontent/pcontent';
+
 
 @Component({
   selector: 'page-home',
