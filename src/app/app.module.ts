@@ -125,7 +125,7 @@ import { AlertProvider } from '../providers/alert/alert';
     EditaddressPage,
     PaymentPage,
     FansPage,
-    FandetailPage
+    FandetailPage,
     SettingPage
   ],
   providers: [  /*引入了自定义的服务*/
