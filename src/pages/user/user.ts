@@ -3,6 +3,9 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { LoginPage } from '../login/login';
 
 import { RegisterPage } from '../register/register';
+//我的粉丝
+import { FansPage } from '../fans/fans';
+
 
 //引入账户设置页面
 
@@ -114,6 +117,11 @@ export class UserPage {
     ionViewWillLeave(){
       
     }
+
+    fans(){
+      this.navCtrl.push(FansPage);
+    }
+
     // ionViewDidLeave(){
     //     console.log("5.0 ionViewDidLeave 离开页面时触发");
     // }

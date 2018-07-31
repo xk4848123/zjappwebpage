@@ -41,8 +41,7 @@ export class CategoryPage {
     //网络接口请求
     this.httpService.requestData(api,(data)=>{
         this.leftCate=data.data;
-        
-        var i:number=0;
+        let i:number=0;
         for(let v in data.data){
           // aaa.Id=n[productSubCategories];
           this.tempDatas[data.data[v].id]=data.data[v].productSubCategories;
@@ -58,8 +57,13 @@ export class CategoryPage {
    this.rightCate=this.tempDatas[id];
 }
 
-
-
+// $('.list').on('click','.page',function(){
+//   $(this).addClass("current").siblings().removeClass("current");
+// });
 }
+
+
+
+
 
 
