@@ -48,7 +48,8 @@ import { EditaddressPage } from '../pages/editaddress/editaddress';
 
 //选择支付方式
 import { PaymentPage } from '../pages/payment/payment';
-
+//设置页面
+import { SettingPage } from '../pages/setting/setting';
 
 //我的粉丝
 
@@ -63,6 +64,9 @@ import { HttpServicesProvider } from '../providers/http-services/http-services';
 
 import { StorageProvider } from '../providers/storage/storage';
 import { ToolsProvider } from '../providers/tools/tools';
+import { ThemeableBrowser} from '@ionic-native/themeable-browser';
+import { AlertProvider } from '../providers/alert/alert';
+
 
 @NgModule({
   declarations: [
@@ -86,7 +90,8 @@ import { ToolsProvider } from '../providers/tools/tools';
     EditaddressPage,
     PaymentPage,
     FansPage,
-    FandetailPage
+    FandetailPage,
+    SettingPage
   ],
   imports: [
     BrowserModule,
@@ -121,6 +126,7 @@ import { ToolsProvider } from '../providers/tools/tools';
     PaymentPage,
     FansPage,
     FandetailPage
+    SettingPage
   ],
   providers: [  /*引入了自定义的服务*/
     StatusBar,
@@ -129,7 +135,9 @@ import { ToolsProvider } from '../providers/tools/tools';
     ConfigProvider,
     HttpServicesProvider,
     StorageProvider,
-    ToolsProvider
+    ToolsProvider,
+    ThemeableBrowser,
+    AlertProvider
   ]
 })
 export class AppModule {}

@@ -9,7 +9,6 @@ import { ProductlistPage } from '../productlist/productlist';
 
 import { ConfigProvider } from '../../providers/config/config';
 import { HttpServicesProvider } from '../../providers/http-services/http-services';
-import { Config } from 'ionic-angular/config/config';
 
 @Component({
   selector: 'page-category',
@@ -24,9 +23,7 @@ export class CategoryPage {
   public leftCate=[];  /*左侧分类数据*/
 
   public rightCate=[];  /*右侧分类数据*/
-  params={categoryId:0,pageNo:1}
-  categories:Array<any>=[]
-  products: Array<any> = [];
+
   constructor(public navCtrl: NavController,public config:ConfigProvider,public httpService:HttpServicesProvider) {
     
   }
@@ -39,20 +36,16 @@ export class CategoryPage {
   //左侧分类的方法
 
   getLeftCateData(){
-    var api='v1/ProductManager/getProductOfCategory';
+    let api='v1/ProductManager/getProductOfCategory';
     //var api='api/pcate'
     //网络接口请求
     this.httpService.requestData(api,(data)=>{
         this.leftCate=data.data;
-        console.log(data.data);
-        this.params.categoryId=this.leftCate[0].categoryId;
-        this.leftCate;
-        var i:number=0;
-        for(var v in data.data){
+        let i:number=0;
+        for(let v in data.data){
           // aaa.Id=n[productSubCategories];
           this.tempDatas[data.data[v].id]=data.data[v].productSubCategories;
       }
- console.log(this.tempDatas);
         //调用右侧分类
         //console.log(this.leftCate);
         //  this.getRightCateData(this.leftCate[0]['id']); 

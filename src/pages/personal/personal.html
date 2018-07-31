@@ -13,9 +13,10 @@
 </ion-header>
 
 
-<ion-content>
-  <div style="border-radius: 2rem;background: burlywood;padding: 2rem;">
-    <ion-list inset class="personal">
+<ion-content style="background: #eeeeee;">
+<!-- <div class="parent-div" style="width: 100%;height: 100%;"> -->
+ 
+    <!-- <ion-list inset class="personal">
         <ion-item (click)="choosePicMenu()">
              头像
             <span class="item-note">
@@ -55,7 +56,34 @@
               出生日期
               <ion-icon name="ios-arrow-forward" item-end></ion-icon>
           </ion-item>
-    </ion-list>
-</div>
+    </ion-list> -->
+
+
+    <div class="card-div">
+      <div class="card-line-head">
+        <span class="head-span">头像</span>
+        <img  src="assets/imgs/user.png" style="float: right;margin-top: 0.5rem;">
+      </div>
+      <div class="line-div"></div>
+      <div class="card-line">
+          <span class="head-span">昵称</span>
+          <span class="content-span">张三</span>
+          <ion-icon class="arrows" name="ios-arrow-forward"></ion-icon>
+        </div>
+        <div class="line-div"></div>
+        <div class="card-line">
+            <span class="head-span">推荐人</span>
+            <span class="content-span">100622</span>
+            <ion-icon class="arrows" name="ios-arrow-forward"></ion-icon>
+        </div>
+        <div class="line-div"></div>
+        <div class="card-line">
+              <span class="head-span">更换手机号</span>
+              <span class="content-span">139****9587</span>
+              <ion-icon class="arrows" name="ios-arrow-forward"></ion-icon>
+        </div>
+      </div>
+    
+     
     <button ion-button block color="danger" class="login_btn" (tap)="loginOut()">退出登录</button>
 </ion-content>

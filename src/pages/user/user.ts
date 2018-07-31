@@ -10,10 +10,13 @@ import { FansPage } from '../fans/fans';
 //引入账户设置页面
 
 import { PersonalPage } from '../personal/personal';
+import { SettingPage } from '../setting/setting';
 
 import { StorageProvider } from '../../providers/storage/storage';
 
 import { HttpServicesProvider } from '../../providers/http-services/http-services';
+
+import { AlertProvider } from '../../providers/alert/alert';
 /**
  * Generated class for the UserPage page.
  *
@@ -34,9 +37,11 @@ export class UserPage {
 
   public PersonalPage=PersonalPage;
 
-  public userInfo=''
+  public SettingPage=SettingPage;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams,public storage:StorageProvider,public httpService:HttpServicesProvider) {
+  public userInfo='';
+
+  constructor(public navCtrl: NavController, public navParams: NavParams,public storage:StorageProvider,public httpService:HttpServicesProvider,public alertProvider:AlertProvider) {
   
     }
     // ionViewDidLoad(){
@@ -55,8 +60,9 @@ export class UserPage {
               if(data.error_code==0){//请求成功
                 this.storage.set('userInfo',data.data);
                 this.userInfo=data.data;
-            }else{
-
+            }else {
+              this.userInfo='';
+              this.alertProvider.showAlert('获取用户信息',data.error_message,['ok']);
             }
             })
           }else{

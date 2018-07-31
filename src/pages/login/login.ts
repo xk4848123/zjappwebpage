@@ -4,6 +4,8 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 import { StorageProvider } from '../../providers/storage/storage';
 import { HttpServicesProvider } from '../../providers/http-services/http-services';
+import { AlertProvider } from '../../providers/alert/alert';
+
 /**
  * Generated class for the LoginPage page.
  *
@@ -26,7 +28,7 @@ public history='';
     password:''
   }
 
-  constructor(public navCtrl: NavController, public navParams:NavParams ,public httpService:HttpServicesProvider,public storage:StorageProvider) {
+  constructor(public navCtrl: NavController, public navParams:NavParams ,public httpService:HttpServicesProvider,public storage:StorageProvider,public alertProvider:AlertProvider) {
 
       this.history=this.navParams.get('history');
   }
@@ -43,7 +45,7 @@ public history='';
     // console.log(this.userinfo);   //{username: "3214324", password: "324"}
 
     if(this.userinfo.phoneNum.length<11){
-      alert('用户名不合法');
+      this.alertProvider.showAlert('用户登录','用户不合法',['ok']);
     }else{
 
         // var api='api/doLogin';
@@ -58,7 +60,9 @@ public history='';
                 this.navCtrl.popToRoot(); /*回到根页面*/
               }
           }else{
-            alert(data.message);
+            console.log(data.error_message);
+            this.alertProvider.showAlert('用户登录',data.error_message,['ok']);
+
           }
         })
      }
