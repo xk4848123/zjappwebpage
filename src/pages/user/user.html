@@ -47,20 +47,40 @@
     <div class="interval">
      我的钱包
     </div>
-    <ion-grid style="padding: 0;width: 100%;">
+    <ion-grid style="padding: 0;width: 100%;" *ngIf="userInfo">
         <ion-row class="col_row" >
           <ion-col class="col_1">
-            1000000000
+            {{userInfo.personDataMap.RemainElecNum}}
           <br>
             现金币
           </ion-col >
           <ion-col class="col_1">
-              12
+            {{userInfo.personDataMap.RemainPoints}}
           <br>
             购物币
           </ion-col>
           <ion-col class="col_1">
-            13
+            {{userInfo.personDataMap.RemainVIPAmount}}
+          <br>
+            消费积分
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+
+      <ion-grid style="padding: 0;width: 100%;" *ngIf="!userInfo">
+        <ion-row class="col_row" >
+          <ion-col class="col_1">
+            0
+          <br>
+            现金币
+          </ion-col >
+          <ion-col class="col_1">
+            0
+          <br>
+            购物币
+          </ion-col>
+          <ion-col class="col_1">
+            0
           <br>
             消费积分
           </ion-col>
@@ -72,7 +92,7 @@
             我的订单
            </div>
            <ion-grid style="padding: 0;width: 100%;">
-              <ion-row class="col_row" >
+              <ion-row class="col_row">
                 <ion-col class="col_2" style="width: 20%;">
                     <img src="assets/imgs/test.png"/>
                     <span>全部订单</span>
@@ -100,7 +120,46 @@
             <div class="interval">
               我的常用
              </div>
-             <ion-grid style="padding: 0;width: 100%;">
+             <ion-grid style="padding: 0;width: 100%;" *ngIf="!userInfo">
+              <ion-row class="col_row" >
+                <ion-col class="col_3" style="width: 20%;">
+                    <img src="assets/imgs/test.png"/>
+                    <span>我的粉丝</span>
+                </ion-col>
+                <ion-col class="col_3" style="width: 20%;">
+                  <img src="assets/imgs/test.png"/>
+                    <span>我的课程</span>
+                </ion-col>
+                <ion-col class="col_3" style="width: 20%;">
+                  <img src="assets/imgs/test.png"/>
+                    <span>客服中心</span>
+                </ion-col>
+                <ion-col class="col_3" style="width: 20%;">
+                  <img src="assets/imgs/test.png"/>
+                    <span>二送一</span>
+                </ion-col>
+                <ion-col class="col_3" style="width: 20%;">
+                  <img src="assets/imgs/test.png"/>
+                    <span>我的名片</span>
+                </ion-col>
+              </ion-row>
+              <ion-row class="col_row" >
+                <ion-col class="col_4" style="width: 20%;">
+                    <img src="assets/imgs/test.png"/>
+                    <span>净水机</span>
+                </ion-col>
+                <ion-col class="col_4" style="width: 20%;">
+                </ion-col>
+                <ion-col class="col_4" style="width: 20%;">
+                </ion-col>
+                <ion-col class="col_4" style="width: 20%;">
+                </ion-col>
+                <ion-col class="col_4" style="width: 20%;">
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+
+            <ion-grid style="padding: 0;width: 100%;" *ngIf="userInfo">
               <ion-row class="col_row" >
                 <ion-col class="col_3" style="width: 20%;">
                     <img src="assets/imgs/test.png"/>
@@ -132,16 +191,17 @@
                   <img src="assets/imgs/test.png"/>
                     <span>实名认证</span>
                 </ion-col>
+                <ion-col class="col_4" style="width: 20%;position: relative;">
+                    <div>
+                    <div class="dot_one" #test></div>
+                    <img class="dot_parent_one" src="assets/imgs/test.png" />
+                    </div>
+                    <span>申请代理</span>
+                </ion-col>
                 <ion-col class="col_4" style="width: 20%;">
-              
-              </ion-col>
-              <ion-col class="col_4" style="width: 20%;">
-             
-              </ion-col>
-              <ion-col class="col_4" style="width: 20%;">
-             
-            </ion-col>
-         
+                </ion-col>
+                <ion-col class="col_4" style="width: 20%;">
+                </ion-col>
               </ion-row>
             </ion-grid>
   </ion-content>

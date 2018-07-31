@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component,Renderer2,ElementRef,ViewChild } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { LoginPage } from '../login/login';
 
@@ -41,14 +41,21 @@ export class UserPage {
 
   public userInfo='';
 
-  constructor(public navCtrl: NavController, public navParams: NavParams,public storage:StorageProvider,public httpService:HttpServicesProvider,public alertProvider:AlertProvider) {
+  public rank='';
+
+  @ViewChild('test') test:ElementRef;
+
+  constructor(public navCtrl: NavController, public navParams: NavParams,public storage:StorageProvider,public httpService:HttpServicesProvider,public alertProvider:AlertProvider,private el:ElementRef,
+    private renderer2: Renderer2) {
   
     }
     // ionViewDidLoad(){
     //     console.log("1.0 ionViewDidLoad 当页面加载的时候触发，仅在页面创建的  时候触发一次，如果被缓存了，那么下次再打开这个页面则不会触发");
     // }
     ionViewWillEnter(){
-        //  console.log("2.0 ionViewWillEnter 顾名思义，当将要进入页面时触发 每次触发");
+      // console.log(this.test.nativeElement);
+      console.log(this.el.nativeElement.querySelector('.dot_one'));
+      // this.renderer2.setStyle(this.el.nativeElement.querySelector('.dot_one'),'width','51px');
          var userInfo = this.storage.get('userInfo');
          if(userInfo){
             this.userInfo=userInfo;
@@ -69,21 +76,59 @@ export class UserPage {
             this.userInfo='';
           }
          }
+         //根据userInfo展示页面
+         if (this.userInfo != ''){
+           //等级设置
+           //如果lev为0
+           if(this.userInfo['personDataMap'].Lev==0){
+              if(this.userInfo['isGCmember']){
+                this.rank='99会员';
+              }else{
+                this.rank='普通会员'
+              }
+              //如果lev为1
+           }else if(this.userInfo['personDataMap'].Lev==1){
+             this.rank='VIP';
+             //如果lev为2
+           }else if(this.userInfo['personDataMap'].Lev==2){
+             if(this.userInfo['personDataMap'].IsSubProxy==1){
+              this.rank='准代理';
+             }else{
+              this.rank='合伙人';
+             }
+             //如果lev为3
+           }else{
+            this.rank='代理';
+           }
+           //申请代理栏目设置
+
+    
+         }else{
+          this.rank='';
+         }
     }
+    ionViewDidEnter(){
+       console.log("3.0 ionViewDidEnter 当进入页面时触发");
+     
+      //  this.renderer2.setStyle(this.el.nativeElement.querySelector('.dot_one'),'width','51px');
+      //  console.log(this.el.nativeElement.querySelector('.dot_one').offsetWidth);
+    }
+   
+    ionViewWillLeave(){
+      
+    }
+
     fans(){
       this.navCtrl.push(FansPage);
     }
-    // ionViewDidEnter(){
-    //    console.log("3.0 ionViewDidEnter 当进入页面时触发");
-    // }
-    // ionViewWillLeave(){
-    //     console.log("4.0 ionViewWillLeave 当将要从页面离开时触发");
-    // }
+
     // ionViewDidLeave(){
     //     console.log("5.0 ionViewDidLeave 离开页面时触发");
     // }
     // ionViewWillUnload(){
     //    console.log("6.0 ionViewWillUnload 当页面将要销毁同时页面上元素移除   时触发");
+      
+
     // }
     // ionViewCanEnter(){
     //    console.log("ionViewCanEnter");
