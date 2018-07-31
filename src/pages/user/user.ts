@@ -3,6 +3,9 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { LoginPage } from '../login/login';
 
 import { RegisterPage } from '../register/register';
+//我的粉丝
+import { FansPage } from '../fans/fans';
+
 
 //引入账户设置页面
 
@@ -60,6 +63,9 @@ export class UserPage {
             this.userInfo='';
           }
          }
+    }
+    fans(){
+      this.navCtrl.push(FansPage);
     }
     // ionViewDidEnter(){
     //    console.log("3.0 ionViewDidEnter 当进入页面时触发");

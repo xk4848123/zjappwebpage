@@ -50,6 +50,12 @@ import { EditaddressPage } from '../pages/editaddress/editaddress';
 import { PaymentPage } from '../pages/payment/payment';
 
 
+//我的粉丝
+
+import { FansPage } from '../pages/fans/fans';
+
+//粉丝详情
+import { FandetailPage } from '../pages/fandetail/fandetail';
 
 import { TabsPage } from '../pages/tabs/tabs';
 import { ConfigProvider } from '../providers/config/config';
@@ -78,7 +84,9 @@ import { ToolsProvider } from '../providers/tools/tools';
     AddressPage,
     AddaddressPage,
     EditaddressPage,
-    PaymentPage
+    PaymentPage,
+    FansPage,
+    FandetailPage
   ],
   imports: [
     BrowserModule,
@@ -110,7 +118,9 @@ import { ToolsProvider } from '../providers/tools/tools';
     AddressPage,
     AddaddressPage,
     EditaddressPage,
-    PaymentPage
+    PaymentPage,
+    FansPage,
+    FandetailPage
   ],
   providers: [  /*引入了自定义的服务*/
     StatusBar,

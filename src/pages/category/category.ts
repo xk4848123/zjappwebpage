@@ -47,7 +47,6 @@ export class CategoryPage {
         console.log(data.data);
         this.params.categoryId=this.leftCate[0].categoryId;
         this.leftCate;
-        
         var i:number=0;
         for(var v in data.data){
           // aaa.Id=n[productSubCategories];
@@ -65,8 +64,13 @@ export class CategoryPage {
    this.rightCate=this.tempDatas[id];
 }
 
-
-
+// $('.list').on('click','.page',function(){
+//   $(this).addClass("current").siblings().removeClass("current");
+// });
 }
+
+
+
+
 
 
