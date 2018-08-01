@@ -66,6 +66,7 @@ import { StorageProvider } from '../providers/storage/storage';
 import { ToolsProvider } from '../providers/tools/tools';
 import { ThemeableBrowser} from '@ionic-native/themeable-browser';
 import { AlertProvider } from '../providers/alert/alert';
+import { ClearloginProvider } from '../providers/clearlogin/clearlogin';
 
 
 @NgModule({
@@ -137,7 +138,8 @@ import { AlertProvider } from '../providers/alert/alert';
     StorageProvider,
     ToolsProvider,
     ThemeableBrowser,
-    AlertProvider
+    AlertProvider,
+    ClearloginProvider
   ]
 })
 export class AppModule {}
