@@ -45,7 +45,7 @@ public history='';
     // console.log(this.userinfo);   //{username: "3214324", password: "324"}
 
     if(this.userinfo.phoneNum.length<11){
-      this.alertProvider.showAlert('用户登录','用户不合法',['ok']);
+      this.alertProvider.showAlert('用户不合法','',['ok']);
     }else{
 
         // var api='api/doLogin';
@@ -61,7 +61,7 @@ public history='';
               }
           }else{
             console.log(data.error_message);
-            this.alertProvider.showAlert('用户登录',data.error_message,['ok']);
+            this.alertProvider.showAlert(data.error_message,'',['ok']);
 
           }
         })
