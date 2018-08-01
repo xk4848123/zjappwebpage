@@ -89,11 +89,34 @@ export class UserPage {
 
   //进入各个子模块的入口
   mainEntrance(moduleName){
-    console.log('------');
-    console.log(moduleName);
+   if(this.userInfo){//登录以后才能获取进入子模块
     if(moduleName == 'fans'){
       this.navCtrl.push(FansPage);
     }
+    //特殊的申请代理
+    if(moduleName == 'proxyApply'){
+      if(this.userInfo['personDataMap'].Lev==3 || (this.userInfo['personDataMap'].Lev==2 && this.userInfo['personDataMap'].IsSubProxy == 1)){
+        console.log('进入申请代理页面');
+      }else{
+        this.alertProvider.showAlert('您还不是代理哦', '', ['ok']);
+      }
+    }
+   }else{
+    this.alertProvider.showAlert('客观请登录', '', [
+      {
+        text: '关闭',
+        handler: () => {
+        }
+      },
+      {
+        text: '登录',
+        handler: () => {
+          this.navCtrl.push(LoginPage);
+        }
+      }
+    ]);
+   }
+  
   }
 
 
@@ -163,6 +186,7 @@ export class UserPage {
             }
           } else {
             this.canAgentApply = false;
+            this.isAgentApply = true;
           }
           //实名认证栏目设置
           if(this.userInfo['isAlreadyAuth']){
