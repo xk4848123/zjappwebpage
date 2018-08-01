@@ -58,6 +58,8 @@ import { FansPage } from '../pages/fans/fans';
 //粉丝详情
 import { FandetailPage } from '../pages/fandetail/fandetail';
 
+import { CameraPage } from '../pages/camera/camera';
+
 import { TabsPage } from '../pages/tabs/tabs';
 import { ConfigProvider } from '../providers/config/config';
 import { HttpServicesProvider } from '../providers/http-services/http-services';
@@ -67,6 +69,10 @@ import { ToolsProvider } from '../providers/tools/tools';
 import { ThemeableBrowser} from '@ionic-native/themeable-browser';
 import { AlertProvider } from '../providers/alert/alert';
 import { ClearloginProvider } from '../providers/clearlogin/clearlogin';
+
+import { Camera } from '@ionic-native/camera';
+import {File} from '@ionic-native/file';
+import { FileTransfer } from '@ionic-native/file-transfer';
 
 
 @NgModule({
@@ -92,7 +98,8 @@ import { ClearloginProvider } from '../providers/clearlogin/clearlogin';
     PaymentPage,
     FansPage,
     FandetailPage,
-    SettingPage
+    SettingPage,
+    CameraPage
   ],
   imports: [
     BrowserModule,
@@ -127,7 +134,8 @@ import { ClearloginProvider } from '../providers/clearlogin/clearlogin';
     PaymentPage,
     FansPage,
     FandetailPage,
-    SettingPage
+    SettingPage,
+    CameraPage
   ],
   providers: [  /*引入了自定义的服务*/
     StatusBar,
@@ -139,7 +147,10 @@ import { ClearloginProvider } from '../providers/clearlogin/clearlogin';
     ToolsProvider,
     ThemeableBrowser,
     AlertProvider,
-    ClearloginProvider
+    ClearloginProvider,
+    Camera,
+    File,
+    FileTransfer
   ]
 })
 export class AppModule {}

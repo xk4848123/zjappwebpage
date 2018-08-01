@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { StorageProvider } from '../../providers/storage/storage';
+
+import { CameraPage } from '../camera/camera';
 /**
  * Generated class for the PersonalPage page.
  *
@@ -14,6 +16,8 @@ import { StorageProvider } from '../../providers/storage/storage';
   templateUrl: 'personal.html',
 })
 export class PersonalPage {
+
+  public CameraPage=CameraPage;
 
   constructor(public navCtrl: NavController, public navParams: NavParams,public storage:StorageProvider) {
   }

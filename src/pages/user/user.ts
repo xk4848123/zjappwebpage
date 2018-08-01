@@ -188,6 +188,7 @@ export class UserPage {
             this.canAgentApply = false;
             this.isAgentApply = true;
           }
+          console.log(this.isAgentApply);
           //实名认证栏目设置
           if(this.userInfo['isAlreadyAuth']){
             this.isAuth=true;
