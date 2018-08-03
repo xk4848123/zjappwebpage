@@ -12,28 +12,32 @@
 
 </ion-header>
 <ion-content style="background: #eeeeee;">
-    <div id="dot_one" class="dot_one"></div>
     <div class="card-div">
       <div class="card-line-head" [navPush]='CameraPage'>
         <span class="head-span">头像</span>
-        <img  src="assets/imgs/user.png" style="float: right;margin-top: 0.5rem;">
+        <img  [src]="config.domain+userInfo.headPhoto" style="float: right;margin-top: 0.5rem;">
       </div>
       <div class="line-div"></div>
       <div class="card-line">
           <span class="head-span">昵称</span>
-          <span class="content-span">张三</span>
+          <span class="content-span">{{userInfo.nickName}}</span>
           <ion-icon class="arrows" name="ios-arrow-forward"></ion-icon>
         </div>
         <div class="line-div"></div>
-        <div class="card-line">
+        <div class="card-line" *ngIf="userInfo.beInviteCode != 0">
             <span class="head-span">推荐人</span>
-            <span class="content-span">100622</span>
+            <span class="content-span">{{userInfo.beInviteCode}}</span>
             <ion-icon class="arrows" name="ios-arrow-forward"></ion-icon>
         </div>
+        <div class="card-line" *ngIf="userInfo.beInviteCode == 0">
+          <span class="head-span">推荐人</span>
+          <span class="content-span"></span>
+          <!-- <ion-icon class="arrows" name="ios-arrow-forward"></ion-icon> -->
+      </div>
         <div class="line-div"></div>
         <div class="card-line">
               <span class="head-span">更换手机号</span>
-              <span class="content-span">139****9587</span>
+              <span class="content-span">{{userInfo.userName}}</span>
               <ion-icon class="arrows" name="ios-arrow-forward"></ion-icon>
         </div>
       </div>

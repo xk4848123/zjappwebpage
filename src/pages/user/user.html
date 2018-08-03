@@ -30,7 +30,7 @@
   </div>
 
   <ion-list inset *ngIf="userInfo">
-    <ion-item [navPush]='PersonalPage' class="person">
+    <ion-item [navPush]='PersonalPage' class="person" *ngIf="userInfo">
       <div item-left class="avatar">
         <img [src]="config.domain+userInfo.personDataMap.HeadPhoto" onerror="this.src='assets/imgs/user.png'" class="headimg">
         <div class="rank">
@@ -47,7 +47,7 @@
   <div class="interval">
     我的钱包
   </div>
-  <ion-grid style="padding: 0;width: 100%;" *ngIf="userInfo">
+  <ion-grid style="padding: 0;width: 100%;border-radius: 0.5rem;" *ngIf="userInfo">
     <ion-row class="col_row">
       <ion-col class="col_1">
         {{userInfo.personDataMap.RemainElecNum}}
