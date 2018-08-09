@@ -13,9 +13,9 @@
 </ion-header>
 <ion-content style="background: #eeeeee;">
     <div class="card-div">
-      <div class="card-line-head" [navPush]='CameraPage'>
+      <div class="card-line-head" (tap)="changeHead()">
         <span class="head-span">头像</span>
-        <img  [src]="config.domain+userInfo.headPhoto" style="float: right;margin-top: 0.5rem;">
+        <img  [src]="config.domain+userInfo.headPhoto" onerror="this.src='assets/imgs/user.png'" style="float: right;margin-top: 0.5rem;">
       </div>
       <div class="line-div"></div>
       <div class="card-line">

@@ -8,19 +8,12 @@
   https://ionicframework.com/docs/components/#radio
 -->
 <ion-header>
-
   <ion-navbar>
     <ion-title>选择支付方式</ion-title>
   </ion-navbar>
-
 </ion-header>
-
-
 <ion-content>
-
-
-        <ion-list inset radio-group>
-    
+        <ion-list inset radio-group [(ngModel)]="way">
             <ion-item-divider >
               支付方式
             </ion-item-divider>           
@@ -43,14 +36,10 @@
             <ion-item>
             </ion-item>
       </ion-list>
-
 </ion-content>
-
-
-
 <ion-footer>
   <ion-toolbar>
-    <div class="payment">
+    <div class="payment" (tap) = "pay()">
       支付       
     </div>
   </ion-toolbar>

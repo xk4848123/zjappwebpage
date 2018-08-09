@@ -55,8 +55,12 @@ import { SettingPage } from '../pages/setting/setting';
 
 import { FansPage } from '../pages/fans/fans';
 
+import { MywalletPage } from '../pages/mywallet/mywallet';
+
 //粉丝详情
 import { FandetailPage } from '../pages/fandetail/fandetail';
+
+import { RechargePage } from '../pages/recharge/recharge';
 
 import { TabsPage } from '../pages/tabs/tabs';
 import { ConfigProvider } from '../providers/config/config';
@@ -74,6 +78,7 @@ import {File} from '@ionic-native/file';
 import { FileTransfer, FileUploadOptions, FileTransferObject } from '@ionic-native/file-transfer';
 import { ImgProvider } from '../providers/img/img';
 import { ToastProvider } from '../providers/toast/toast';
+// import { Alipay } from '@ionic-native/alipay';
 
 
 @NgModule({
@@ -99,7 +104,9 @@ import { ToastProvider } from '../providers/toast/toast';
     PaymentPage,
     FansPage,
     FandetailPage,
-    SettingPage
+    SettingPage,
+    MywalletPage,
+    RechargePage
   ],
   imports: [
     BrowserModule,
@@ -134,7 +141,9 @@ import { ToastProvider } from '../providers/toast/toast';
     PaymentPage,
     FansPage,
     FandetailPage,
-    SettingPage
+    SettingPage,
+    MywalletPage,
+    RechargePage
   ],
   providers: [  /*引入了自定义的服务*/
     StatusBar,
@@ -153,7 +162,8 @@ import { ToastProvider } from '../providers/toast/toast';
     FileTransferObject,
     FileTransfer,
     ImgProvider,
-    ToastProvider
+    ToastProvider,
+    // Alipay
   ]
 })
 export class AppModule {}

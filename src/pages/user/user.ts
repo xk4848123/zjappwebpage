@@ -1,11 +1,12 @@
-import { Component, Renderer2, ElementRef, ViewChild } from '@angular/core';
+import { Component, Renderer2, ElementRef } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { LoginPage } from '../login/login';
 
 import { RegisterPage } from '../register/register';
 //我的粉丝
 import { FansPage } from '../fans/fans';
-
+//钱包页面
+import { MywalletPage } from '../mywallet/mywallet';
 
 //引入账户设置页面
 
@@ -92,6 +93,9 @@ export class UserPage {
    if(this.userInfo){//登录以后才能获取进入子模块
     if(moduleName == 'fans'){
       this.navCtrl.push(FansPage);
+    }
+    if(moduleName == 'mywallet'){
+      this.navCtrl.push(MywalletPage);
     }
     //特殊的申请代理
     if(moduleName == 'proxyApply'){
