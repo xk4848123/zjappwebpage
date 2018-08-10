@@ -5,50 +5,30 @@
   Ionic pages and navigation.
 -->
 <ion-header>
-
   <ion-navbar>
     <ion-title>我的粉丝</ion-title>
   </ion-navbar>
-
 </ion-header>
-
-
-<ion-content padding>
-     <!-- <div class="scroll" >
-      <p>
-        <a class="button icon icon-right icon-chevron-right" href="#">
-          红粉
-          </a>
-      </p>
-     </div> -->
-     <ul class="list">
-                <li class="item" (click)="onClick()">
-                  红粉  
-                  <div class="list">
-                  <p>
-                     1
-                      <ion-icon name="ios-arrow-forward"></ion-icon>                   
-                      </p>
-                      </div>
-                </li>
-                <li class="item" (click)="onClick()">
-                  蓝粉
-                  <div class="list">
-                      <p>
-                          0
-                          <ion-icon name="ios-arrow-forward"></ion-icon>                   
-                          </p>
-                          </div>
-                </li>
-                <li class="item" (click)="onClick()">
-                  黄粉
-                  <div class="list">
-                      <p>
-                          0
-                          <ion-icon name="ios-arrow-forward"></ion-icon>                   
-                          </p>
-                          </div>
-                </li>
-        
-              </ul>
+<ion-content style="background: #eeeeee;">
+    <div class="card-div" (click)="onClick()">
+        <div class="card-line">
+            <span class="head-span"(click)="Red($event)">红粉</span>
+            <p *ngFor="let item of arr">{{item.Red}}</p>
+            <ion-icon class="arrows" name="ios-arrow-forward"></ion-icon>
+          </div>
+          <div class="line-div"></div>
+          <div class="card-line">
+              <span class="head-span" (click)="Red($event)">黄粉</span>
+              <p *ngFor="let item of arr">{{item.Yellow}}</p>
+              <ion-icon class="arrows" name="ios-arrow-forward"></ion-icon>
+          </div>
+          <div class="line-div"></div>
+          <div class="card-line">
+                <span class="head-span" (click)="Red($event)">蓝粉</span>
+                <p *ngFor="let item of arr">{{item.Blue}}</p>
+                <div class="list">
+                <ion-icon class="arrows" name="ios-arrow-forward"></ion-icon>
+                </div>
+          </div>
+        </div>  
 </ion-content>
