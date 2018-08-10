@@ -60,9 +60,9 @@ export class PersonalPage {
   }
 
   refreshUser() {
-    var token = this.storage.get('token');
+    let token = this.storage.get('token');
     if (token) {
-      var api = 'v1/PersonalCenter/initPersonalCenterData/' + token;
+      let api = 'v1/PersonalCenter/initPersonalCenterData/' + token;
       this.httpService.requestData(api, (data) => {
         if (data.error_code == 0) {//请求成功
           let tempData = data.data;

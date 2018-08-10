@@ -44,6 +44,7 @@
   </ion-list>
   <div class="transition">
   </div>
+  <div (tap)="mainEntrance('mywallet')">
   <div class="interval">
     我的钱包
   </div>
@@ -63,7 +64,7 @@
       </ion-col>
     </ion-row>
   </ion-grid>
-
+</div>
   <ion-grid style="padding: 0;width: 100%;" *ngIf="!userInfo">
     <ion-row class="col_row">
       <ion-col class="col_1">
