@@ -30,27 +30,34 @@ page-user {
     .col_1{
         background-color: #ffffff;
         padding: 1rem;
-        border-top: 0.2rem solid #ddd;
+        border-top: 0.1rem solid #ddd;
         border-bottom: 0.1rem solid #ddd;
         border-left: 0.1rem solid #ddd;
         border-right: 0.1rem solid #ddd;
         text-align: center;
         font-size: 1.4rem;
+        color: #8e9093;
+      }
+      .col_1 span{
+        color: black; 
       }
       .col_2{
         background-color: #ffffff;
         padding: 1rem;
-        border-top: 0.2rem solid #ddd;
+        border-top: 0.1rem solid #ddd;
         border-bottom: 0.1rem solid #ddd;
         text-align: center;
         font-size: 1.2rem;
+        color: #8e9093;
       }
+     
       .col_3{
         background-color: #ffffff;
         padding: 1rem;
-        border-top: 0.2rem solid #ddd;
+        border-top: 0.1rem solid #ddd;
         text-align: center;
         font-size: 1.2rem;
+        color: #8e9093;
       }
       .col_4{
         background-color: #ffffff;
@@ -58,6 +65,7 @@ page-user {
         border-top: 0.1rem solid #ddd;
         text-align: center;
         font-size: 1.2rem;
+        color: #8e9093;
       }
       .interval{
         height: 4rem;
@@ -79,7 +87,7 @@ page-user {
           height: 3rem;
           width: 3rem;
           display: block;
-          margin: 0 auto;
+          margin: 0 auto 0.5rem auto;
       }
     
       .avatar{
@@ -93,7 +101,7 @@ page-user {
         position:absolute;
         background-color: #FF9900;
         padding: 0.1rem;
-        width: 3.5rem;
+        width: 3.8rem;
         text-align: center;
         top:5rem;
         left: 1.25rem;
