@@ -60,6 +60,10 @@ import { MywalletPage } from '../pages/mywallet/mywallet';
 //粉丝详情
 import { FandetailPage } from '../pages/fandetail/fandetail';
 
+//全部订单
+import { OrdersPage} from '../pages/orders/orders';
+
+
 import { RechargePage } from '../pages/recharge/recharge';
 
 import { TabsPage } from '../pages/tabs/tabs';
@@ -106,7 +110,8 @@ import { ToastProvider } from '../providers/toast/toast';
     FandetailPage,
     SettingPage,
     MywalletPage,
-    RechargePage
+    RechargePage,
+    OrdersPage
   ],
   imports: [
     BrowserModule,
@@ -143,7 +148,8 @@ import { ToastProvider } from '../providers/toast/toast';
     FandetailPage,
     SettingPage,
     MywalletPage,
-    RechargePage
+    RechargePage,
+    OrdersPage
   ],
   providers: [  /*引入了自定义的服务*/
     StatusBar,

@@ -5,6 +5,8 @@ import { LoginPage } from '../login/login';
 import { RegisterPage } from '../register/register';
 //我的粉丝
 import { FansPage } from '../fans/fans';
+//全部订单
+import { OrdersPage } from '../orders/orders';
 //钱包页面
 import { MywalletPage } from '../mywallet/mywallet';
 
@@ -96,6 +98,11 @@ export class UserPage {
     }
     if(moduleName == 'mywallet'){
       this.navCtrl.push(MywalletPage);
+    }
+    if(moduleName == 'allorders'){
+      this.navCtrl.push(OrdersPage,{
+        type:'all'
+      });
     }
     //特殊的申请代理
     if(moduleName == 'proxyApply'){
@@ -252,5 +259,4 @@ export class UserPage {
   // ionViewCanLeave(){
   //      console.log("ionViewCanLeave");
   // }
-
 }
