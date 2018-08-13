@@ -67,7 +67,7 @@ export class SearchPage {
 
       // console.log(this.keywords);
 
-      var api='api/plist?search='+this.keywords+'&page='+this.page;
+      var api='v1/ProductManager/searchProduct?key='+this.keywords;
       this.httpService.requestData(api,(data)=>{
        
           if(this.page==1){  /*第一页 替换数据*/
@@ -84,11 +84,7 @@ export class SearchPage {
              if(data.result<10){
                 this.hasData=false; 
              }
-
-
           }
-          this.page++;
-       
       })      
 
 

@@ -6,7 +6,18 @@ import { StatusBar } from '@ionic-native/status-bar';
 
 import { HttpModule, JsonpModule } from '@angular/http';
 import { MyApp } from './app.component';
-
+//A组件
+import { IonModleAComponent} from './../components/ion-modle-a/ion-modle-a';
+//B组件
+import { IonModleBComponent} from './../components/ion-modle-b/ion-modle-b';
+//C组件
+import { IonModleCComponent} from './../components/ion-modle-c/ion-modle-c';
+//D组件
+import{ IonModleDComponent} from './../components/ion-modle-d/ion-modle-d';
+//G组件
+import { IonModleGComponent} from './../components/ion-modle-g/ion-modle-g';
+//轮播页面
+import { IndexAdvPage } from '../pages/index-adv/index-adv';
 import { HomePage } from '../pages/home/home';
 import { CategoryPage } from '../pages/category/category';
 import { CartPage } from '../pages/cart/cart';
@@ -111,6 +122,13 @@ import { ToastProvider } from '../providers/toast/toast';
     FansPage,
     FandetailPage,
     SettingPage,
+    CameraPage,
+    IndexAdvPage,
+    IonModleAComponent,
+    IonModleBComponent,
+    IonModleCComponent,
+    IonModleDComponent,
+    IonModleGComponent,
     MywalletPage,
     RechargePage,
     OrdersPage,
@@ -150,6 +168,13 @@ import { ToastProvider } from '../providers/toast/toast';
     FansPage,
     FandetailPage,
     SettingPage,
+    CameraPage,
+    IndexAdvPage,
+    IonModleAComponent,
+    IonModleBComponent,
+    IonModleCComponent,
+    IonModleDComponent,
+    IonModleGComponent,
     MywalletPage,
     RechargePage,
     OrdersPage,

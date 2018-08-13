@@ -1,60 +1,66 @@
-<ion-header>
+<!-- <ion-header>
   <ion-navbar>
     <ion-searchbar (tap)="goSearch()"></ion-searchbar>
   </ion-navbar>
-</ion-header>
+</ion-header> -->
+
 
 <ion-content>
-
-   <ion-slides *ngIf="focusList.length>0" class="focus" pager  loop="true" autoplay="3000">    
-      <ion-slide *ngFor="let item of focusList">
-          <img [src]="config.apiUrl+item.pic" />
-      </ion-slide>         
-   </ion-slides>
-
-    <div class="home_title">
-      精品推荐
+    <div class="tc">
+      <div>
+        <ion-searchbar class="tsearch" (tap)="goSearch()"></ion-searchbar>
+      </div>
+      <div class="message">
+        <a><img src="../../assets/icon/message.png"></a>
+      </div>
     </div>
-    <div class="rec_shop">
-
-
-      <!--外层的ion-scroll 100%   里面元素的宽度要大于100%-->
-        <ion-scroll scrollX="true">  
-
-            <ul class="plist clearfix" [ngStyle]="{'width':bestListWidth}">
-                <li *ngFor="let item of bestList" [navPush]="PcontentPage" [navParams]="{'id':item['_id']}">     
-               
-                  <img [src]="config.apiUrl+item.s_pic" />
-                  <div class="rec_shop_detial">{{item.title}}</div>
-                  <p><span class="price">¥{{item.price}}</span><p>
-
-                </li>
-              </ul>
-        </ion-scroll>
-
-       
-
-      
+    <page-index-adv></page-index-adv>
+    <div class="dis">
+      <ion-modle-a [params]="paramsA1" style="display: none;"></ion-modle-a>
+      <ion-modle-b [params]="paramsB1" style="display: none;"></ion-modle-b>
+      <ion-modle-c [params]="paramsC1" style="display: none;"></ion-modle-c>
+      <ion-modle-d [params]="paramsD1" style="display: none;"></ion-modle-d>
+      <ion-modle-g [params]="paramsG1" style="display: none;"></ion-modle-g>
     </div>
-
-    <div class="home_title">
-      
-           猜你喜欢
+    <div class="dis">
+      <ion-modle-a [params]="paramsA2" style="display: none;"></ion-modle-a>
+      <ion-modle-b [params]="paramsB2" style="display: none;"></ion-modle-b>
+      <ion-modle-c [params]="paramsC2" style="display: none;"></ion-modle-c>
+      <ion-modle-d [params]="paramsD2" style="display: none;"></ion-modle-d>
+      <ion-modle-g [params]="paramsG2" style="display: none;"></ion-modle-g>
     </div>
-
-    <div class="hot_shop clearfix">      
-          <ion-row>
-              <ion-col col-6 *ngFor="let item of hotList" [navPush]="PcontentPage" [navParams]="{'id':item['_id']}">                                   
-
-                      <img [src]="config.apiUrl+item.s_pic" />
-                      <div class="hot_shop_detail">{{item.title}}</div>
-                      <p><span class="price">¥{{item.price}}</span> <span class="old_price">¥{{item.old_price}}</span></p>
-              </ion-col>
-          </ion-row>
-
-
+    <div class="dis">
+      <ion-modle-a [params]="paramsA3" style="display: none;"></ion-modle-a>
+      <ion-modle-b [params]="paramsB3" style="display: none;"></ion-modle-b>
+      <ion-modle-c [params]="paramsC3" style="display: none;"></ion-modle-c>
+      <ion-modle-d [params]="paramsD3" style="display: none;"></ion-modle-d>
+      <ion-modle-g [params]="paramsG3" style="display: none;"></ion-modle-g>
     </div>
-
-
-
+    <div class="dis">
+      <ion-modle-a [params]="paramsA4" style="display: none;"></ion-modle-a>
+      <ion-modle-b [params]="paramsB4" style="display: none;"></ion-modle-b>
+      <ion-modle-c [params]="paramsC4" style="display: none;"></ion-modle-c>
+      <ion-modle-d [params]="paramsD4" style="display: none;"></ion-modle-d>
+      <ion-modle-g [params]="paramsG4" style="display: none;"></ion-modle-g>
+    </div>
+    <div class="dis">
+      <ion-modle-a [params]="paramsA5" style="display: none;"></ion-modle-a>
+      <ion-modle-b [params]="paramsB5" style="display: none;"></ion-modle-b>
+      <ion-modle-c [params]="paramsC5" style="display: none;"></ion-modle-c>
+      <ion-modle-d [params]="paramsD5" style="display: none;"></ion-modle-d>
+      <ion-modle-g [params]="paramsG5" style="display: none;"></ion-modle-g>
+    </div>
+    <div class="dis">
+      <ion-modle-a [params]="paramsA6" style="display: none;"></ion-modle-a>
+      <ion-modle-b [params]="paramsB6" style="display: none;"></ion-modle-b>
+      <ion-modle-c [params]="paramsC6" style="display: none;"></ion-modle-c>
+      <ion-modle-d [params]="paramsD6" style="display: none;"></ion-modle-d>
+      <ion-modle-g [params]="paramsG6" style="display: none;"></ion-modle-g>
+    </div>
+    <!-- <ion-modle-a [params]="params"></ion-modle-a>
+    <ion-modle-b [params]="paramsB"></ion-modle-b>
+    <ion-modle-a [params]="params"></ion-modle-a>
+    <ion-modle-c [params]="paramsC"></ion-modle-c>
+    <ion-modle-a [params]="params"></ion-modle-a>
+    <ion-modle-c [params]="paramsC"></ion-modle-c> -->
 </ion-content>
