@@ -30,7 +30,7 @@
              
             <h2  *ngIf="item.Lev == 1">等级：VIP</h2>
             <h2  *ngIf="item.Lev == 2">等级：合伙人</h2>
-            <button *ngIf="item.canUse == 1" ion-button item-right>赠送</button>
+            <button (tap)= "GiveImmediately()" *ngIf="item.canUse == 1" ion-button item-right>赠送</button>
             <button *ngIf="item.canUse == 0" color="gray" ion-button item-right>赠送</button>
           </ion-item>
           
