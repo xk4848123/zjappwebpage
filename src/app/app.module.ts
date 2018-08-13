@@ -66,10 +66,18 @@ import { SettingPage } from '../pages/setting/setting';
 
 import { FansPage } from '../pages/fans/fans';
 
+import { MywalletPage } from '../pages/mywallet/mywallet';
+
 //粉丝详情
 import { FandetailPage } from '../pages/fandetail/fandetail';
 
-import { CameraPage } from '../pages/camera/camera';
+//全部订单
+import { OrdersPage} from '../pages/orders/orders';
+
+
+import { RechargePage } from '../pages/recharge/recharge';
+
+import { VippresentPage } from '../pages/vippresent/vippresent';
 
 import { TabsPage } from '../pages/tabs/tabs';
 import { ConfigProvider } from '../providers/config/config';
@@ -82,8 +90,12 @@ import { AlertProvider } from '../providers/alert/alert';
 import { ClearloginProvider } from '../providers/clearlogin/clearlogin';
 
 import { Camera } from '@ionic-native/camera';
+import { ImagePicker } from '@ionic-native/image-picker';
 import {File} from '@ionic-native/file';
-import { FileTransfer } from '@ionic-native/file-transfer';
+import { FileTransfer, FileUploadOptions, FileTransferObject } from '@ionic-native/file-transfer';
+import { ImgProvider } from '../providers/img/img';
+import { ToastProvider } from '../providers/toast/toast';
+// import { Alipay } from '@ionic-native/alipay';
 
 
 @NgModule({
@@ -116,7 +128,11 @@ import { FileTransfer } from '@ionic-native/file-transfer';
     IonModleBComponent,
     IonModleCComponent,
     IonModleDComponent,
-    IonModleGComponent
+    IonModleGComponent,
+    MywalletPage,
+    RechargePage,
+    OrdersPage,
+    VippresentPage
   ],
   imports: [
     BrowserModule,
@@ -158,7 +174,11 @@ import { FileTransfer } from '@ionic-native/file-transfer';
     IonModleBComponent,
     IonModleCComponent,
     IonModleDComponent,
-    IonModleGComponent
+    IonModleGComponent,
+    MywalletPage,
+    RechargePage,
+    OrdersPage,
+    VippresentPage
   ],
   providers: [  /*引入了自定义的服务*/
     StatusBar,
@@ -172,8 +192,13 @@ import { FileTransfer } from '@ionic-native/file-transfer';
     AlertProvider,
     ClearloginProvider,
     Camera,
+    ImagePicker,
     File,
-    FileTransfer
+    FileTransferObject,
+    FileTransfer,
+    ImgProvider,
+    ToastProvider,
+    // Alipay
   ]
 })
 export class AppModule {}

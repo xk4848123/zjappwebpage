@@ -4,8 +4,8 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 import { StorageProvider } from '../../providers/storage/storage';
 import { HttpServicesProvider } from '../../providers/http-services/http-services';
-import { AlertProvider } from '../../providers/alert/alert';
 
+import { ToastProvider } from '../../providers/toast/toast';
 /**
  * Generated class for the LoginPage page.
  *
@@ -28,7 +28,7 @@ public history='';
     password:''
   }
 
-  constructor(public navCtrl: NavController, public navParams:NavParams ,public httpService:HttpServicesProvider,public storage:StorageProvider,public alertProvider:AlertProvider) {
+  constructor(public navCtrl: NavController, public navParams:NavParams ,public httpService:HttpServicesProvider,public storage:StorageProvider,public noticeSer:ToastProvider) {
 
       this.history=this.navParams.get('history');
   }
@@ -45,11 +45,11 @@ public history='';
     // console.log(this.userinfo);   //{username: "3214324", password: "324"}
 
     if(this.userinfo.phoneNum.length<11){
-      this.alertProvider.showAlert('用户不合法','',['ok']);
+      this.noticeSer.showToast('手机号格式不对');
     }else{
 
         // var api='api/doLogin';
-        var api='v1/LoginAndRegister/UserLogin';
+        let api='v1/LoginAndRegister/UserLogin';
         this.httpService.doPost(api,this.userinfo,(data)=>{
           if(data.error_code==0){//登录成功
               this.storage.set('token',data.data);
@@ -61,7 +61,7 @@ public history='';
               }
           }else{
             console.log(data.error_message);
-            this.alertProvider.showAlert(data.error_message,'',['ok']);
+            this.noticeSer.showToast(data.error_message);
 
           }
         })

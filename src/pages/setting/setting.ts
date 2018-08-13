@@ -41,9 +41,7 @@ export class SettingPage {
             backButtonCanClose: true  
         };  
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad SettingPage');
-  }
+ 
   test(){
    let web_url:string=this.config.domain + '/html/sysaticle.html?id=1';
    this.themeableBrowser.create(web_url, '_blank', this.options);
