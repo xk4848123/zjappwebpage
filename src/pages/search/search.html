@@ -7,8 +7,7 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-searchbar [(ngModel)]="keywords"></ion-searchbar>
-
+    <ion-searchbar class="tsearch" [(ngModel)]="keywords"></ion-searchbar>  
     <ion-buttons end>
       <button ion-button (tap)='getSearchList()'>
          搜索
@@ -18,10 +17,7 @@
 
 </ion-header>
 
-
 <ion-content>
-
-
   <div class="search_content" *ngIf="!flag">
 
       <div class="hotlist">
