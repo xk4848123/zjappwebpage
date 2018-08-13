@@ -6,7 +6,7 @@ import { StorageProvider } from '../../providers/storage/storage';
 
 import { HttpServicesProvider } from '../../providers/http-services/http-services';
 
-import { AlertProvider } from '../../providers/alert/alert';
+import { ToastProvider } from '../../providers/toast/toast';
 /**
  * Generated class for the FandetailPage page.
  *
@@ -23,37 +23,37 @@ export class FandetailPage {
 
   data:any;
    public fansList='';
-  constructor(public navCtrl: NavController, public navParams: NavParams,public storage:StorageProvider,public httpService:HttpServicesProvider,public alertProvider: AlertProvider) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,public storage:StorageProvider,public httpService:HttpServicesProvider,private noticeSer: ToastProvider) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad FandetailPage');
   }
-  ionViewWillEnter(){
-    //页面接收变量
-    this.data = this.navParams.get('item');
-   // console.log(this.data);return;
-    if(this.data=='红粉'){
-      let token=this.storage.get('token');
-      let api='v1/MemberShip/GetFansDetails/' + token;
-      this.httpService.requestData(api,(data)=>{
-         this.fansList=data.data;
-         console.log(this.fansList);return;
-        if(data.error_code==0){
+  // ionViewWillEnter(){
+  // //   //页面接收变量
+  // //   this.data = this.navParams.get('item');
+  // //  // console.log(this.data);return;
+  // //   if(this.data=='红粉'){
+  // //     let token=this.storage.get('token');
+  // //     let api='v1/MemberShip/GetFansDetails/' + token;
+  // //     this.httpService.requestData(api,(data)=>{
+  // //        this.fansList=data.data;
+  // //        console.log(this.fansList);return;
+  // //       if(data.error_code==0){
           
-        }else{
-          this.alertProvider.showAlert('数据获取异常','',['ok']);
-        }
+  // //       }else{
+  // //         this.alertProvider.showAlert('数据获取异常','',['ok']);
+  // //       }
        
-      });
-    }else if(this.data=='黄粉'){
+  // //     });
+  // //   }else if(this.data=='黄粉'){
 
-      console.log('Yellow');
+  // //     console.log('Yellow');
 
-    }else if(this.data=='蓝粉'){
+  // //   }else if(this.data=='蓝粉'){
 
-      console.log('Blue');
-    }
+  // //     console.log('Blue');
+  // //   }
     
-  }
+  // }
 }

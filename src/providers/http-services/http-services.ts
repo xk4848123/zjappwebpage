@@ -21,9 +21,16 @@ export class HttpServicesProvider {
   }
 
   //get请求数据
-  requestData(apiUrl, callback) {
-
-    let api = this.config.apiUrl + apiUrl;
+  requestData(apiUrl, callback, json?) {
+    let api = '';
+    if (json) {
+      let params = Object.keys(json).map(function (key) {
+        return encodeURIComponent(key) + "=" + encodeURIComponent(json[key]);
+      }).join("&");
+      api = this.config.apiUrl + apiUrl + '?' + params;
+    } else {
+      api = this.config.apiUrl + apiUrl;
+    }
     this.http.get(api).subscribe(
       data => {
         callback(data.json());        /*回调函数*/
@@ -50,9 +57,9 @@ export class HttpServicesProvider {
     let params = Object.keys(json).map(function (key) {
       return encodeURIComponent(key) + "=" + encodeURIComponent(json[key]);
     }).join("&");
-    let api = this.config.apiUrl + apiUrl + '?' +  params;
+    let api = this.config.apiUrl + apiUrl + '?' + params;
     console.log(api);
-    this.http.post(api,null).subscribe(
+    this.http.post(api, null).subscribe(
       res => {
         callback(res.json());
       },

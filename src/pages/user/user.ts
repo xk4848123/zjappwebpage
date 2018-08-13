@@ -10,6 +10,8 @@ import { OrdersPage } from '../orders/orders';
 //钱包页面
 import { MywalletPage } from '../mywallet/mywallet';
 
+//二赠一界面
+import { VippresentPage } from '../vippresent/vippresent';
 //引入账户设置页面
 
 import { PersonalPage } from '../personal/personal';
@@ -24,6 +26,8 @@ import { AlertProvider } from '../../providers/alert/alert';
 import { ClearloginProvider } from '../../providers/clearlogin/clearlogin';
 
 import { ConfigProvider } from '../../providers/config/config';
+
+import { ToastProvider } from '../../providers/toast/toast';
 /**
  * Generated class for the UserPage page.
  *
@@ -61,7 +65,7 @@ export class UserPage {
   public isAuth: boolean=false;//是否实名认证通过
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public config: ConfigProvider, public storage: StorageProvider, public httpService: HttpServicesProvider, public alertProvider: AlertProvider, private el: ElementRef,
-    private renderer2: Renderer2, public clearlogin: ClearloginProvider) {
+    private renderer2: Renderer2, public clearlogin: ClearloginProvider,private noticeSer: ToastProvider) {
     //延迟清理第一次加载标记以确保不重复获取用户数据
     setTimeout(() => {
       this.isFirst = false;
@@ -92,6 +96,7 @@ export class UserPage {
 
   //进入各个子模块的入口
   mainEntrance(moduleName){
+  console.log(moduleName);
    if(this.userInfo){//登录以后才能获取进入子模块
     if(moduleName == 'fans'){
       this.navCtrl.push(FansPage);
@@ -103,6 +108,9 @@ export class UserPage {
       this.navCtrl.push(OrdersPage,{
         type:'all'
       });
+    }
+    if(moduleName == 'vippresent'){
+      this.navCtrl.push(VippresentPage);
     }
     //特殊的申请代理
     if(moduleName == 'proxyApply'){
@@ -158,9 +166,9 @@ export class UserPage {
     this.renderer2.setStyle(dotDomTwo,'display','none');
   }
   refreshUser() {
-    var token = this.storage.get('token');
+    let token = this.storage.get('token');
     if (token) {
-      var api = 'v1/PersonalCenter/initPersonalCenterData/' + token;
+      let api = 'v1/PersonalCenter/initPersonalCenterData/' + token;
       this.httpService.requestData(api, (data) => {
         if (data.error_code == 0) {//请求成功
           this.storage.set('userInfo', data.data);
@@ -171,7 +179,7 @@ export class UserPage {
             if (this.userInfo['isGCmember']) {
               this.rank = '99会员';
             } else {
-              this.rank = '普通会员'
+              this.rank = '免费会员'
             }
             //如果lev为1
           } else if (this.userInfo['personDataMap'].Lev == 1) {
@@ -206,7 +214,7 @@ export class UserPage {
           }else{
             this.isAuth=false;
           }
-        } else if (data.error_code == 3) {//token过期
+        } else if (data.error_code == 3)  {//token过期
           this.userInfo = '';
           this.rank = '';
           this.canAgentApply = false;
@@ -234,7 +242,7 @@ export class UserPage {
           this.rank = '';
           this.canAgentApply = false;
           if (this.flag == '0') {
-            this.alertProvider.showAlert(data.error_message, '', ['ok']);
+            this.noticeSer.showToast('网络异常');
           }
           this.flag = '1';//再次报错不再提示
         }
@@ -259,4 +267,12 @@ export class UserPage {
   // ionViewCanLeave(){
   //      console.log("ionViewCanLeave");
   // }
+doRefresh($event){
+  this.refreshUser();
+
+  setTimeout(() => { 
+     $event.complete();
+      this.noticeSer.showToast('加载成功');
+  }, 1000);
+}
 }
