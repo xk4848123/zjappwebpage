@@ -11,7 +11,7 @@
   </ion-navbar>
 
 </ion-header>
-<ion-content>
+<ion-content style="background: #eeeeee;">
     <div padding>
         <ion-segment [(ngModel)]="type" (ionChange)="segmentChanged($event)">
           <ion-segment-button value="possessor">
@@ -30,7 +30,7 @@
              
             <h2  *ngIf="item.Lev == 1">等级：VIP</h2>
             <h2  *ngIf="item.Lev == 2">等级：合伙人</h2>
-            <button (tap)= "GiveImmediately()" *ngIf="item.canUse == 1" ion-button item-right>赠送</button>
+            <button (tap)= "GiveImmediately(item.Id)" *ngIf="item.canUse == 1" ion-button item-right>赠送</button>
             <button *ngIf="item.canUse == 0" color="gray" ion-button item-right>赠送</button>
           </ion-item>
           

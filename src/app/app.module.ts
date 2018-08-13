@@ -68,6 +68,8 @@ import { RechargePage } from '../pages/recharge/recharge';
 
 import { VippresentPage } from '../pages/vippresent/vippresent';
 
+import { VippresentdetailPage } from '../pages/vippresentdetail/vippresentdetail';
+
 import { TabsPage } from '../pages/tabs/tabs';
 import { ConfigProvider } from '../providers/config/config';
 import { HttpServicesProvider } from '../providers/http-services/http-services';
@@ -114,7 +116,8 @@ import { ToastProvider } from '../providers/toast/toast';
     MywalletPage,
     RechargePage,
     OrdersPage,
-    VippresentPage
+    VippresentPage,
+    VippresentdetailPage
   ],
   imports: [
     BrowserModule,
@@ -153,7 +156,8 @@ import { ToastProvider } from '../providers/toast/toast';
     MywalletPage,
     RechargePage,
     OrdersPage,
-    VippresentPage
+    VippresentPage,
+    VippresentdetailPage
   ],
   providers: [  /*引入了自定义的服务*/
     StatusBar,

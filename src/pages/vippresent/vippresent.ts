@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { HttpServicesProvider } from '../../providers/http-services/http-services';
 import { StorageProvider } from '../../providers/storage/storage';
 import { ToastProvider } from '../../providers/toast/toast';
+import { VippresentdetailPage} from '../../pages/vippresentdetail/vippresentdetail';
 /**
  * Generated class for the VippresentPage page.
  *
@@ -25,11 +26,10 @@ export class VippresentPage {
   public list: Array<any> = [];
 
   ionViewWillEnter() {
-   this.getPossessor();
+    this.type = 'possessor'; 
   }
 
   getPossessor() {
-    this.type = 'possessor';
     let token = this.storage.get('token');
     let api = 'v1/MemberShip/GetPresent/' + token;
     this.httpService.requestData(api, (res) => {
@@ -44,7 +44,6 @@ export class VippresentPage {
     }, { type: 1 });
   }
   getAlreadyGive() {
-    this.type = 'alreadygive';
     let token = this.storage.get('token');
     let api = 'v1/MemberShip/GetPresent/' + token;
     this.httpService.requestData(api, (res) => {
@@ -64,6 +63,12 @@ export class VippresentPage {
     } else {
       this.getAlreadyGive();
     }
+  }
+
+  GiveImmediately(sendHeadId){
+     this.navCtrl.push(VippresentdetailPage,{
+       sendHeadId: sendHeadId
+     })
   }
 
 }
