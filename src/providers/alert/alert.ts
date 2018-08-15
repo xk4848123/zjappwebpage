@@ -20,4 +20,19 @@ export class AlertProvider {
     });
     alert.present();
   }
+
+  showPrompt(tilte,buttons) {
+    const prompt = this.alertCtrl.create({
+      title: tilte,
+      message: '',
+      inputs: [
+        {
+          type: 'password',
+          placeholder: '6位支付密码',
+        }
+      ],
+      buttons: buttons
+    });
+    prompt.present();
+  }
 }

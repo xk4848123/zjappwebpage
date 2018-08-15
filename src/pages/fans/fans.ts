@@ -52,7 +52,6 @@ export class FansPage {
         this.httpService.requestData(api,(data)=>{
           if(data.error_code==0){
             //请求成功
-           this.storage.set('fans',data.data);
             this.fansmessage=data.data;
             console.log(data.data);
             //  let temp=JSON.stringify(this.fansmessage);//字符串 

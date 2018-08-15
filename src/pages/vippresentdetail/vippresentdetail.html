@@ -14,18 +14,19 @@
 <ion-content style="background: #eeeeee;">
     <ion-list style="margin-bottom: 0;">
     <ion-item>
-  <ion-input [(ngModel)]='sysid' placeholder="请输入众健号"></ion-input>
-  <button ion-button item-right>搜索</button>
+  <ion-input type="number" [(ngModel)]='sysid' placeholder="请输入众健号"></ion-input>
+  <button ion-button item-right (tap)="searchBySysId()" color= "danger">搜索</button>
   </ion-item>
   </ion-list>
-  <ion-list > 
+  <ion-list *ngIf="obj"> 
       <ion-item>
         <ion-avatar item-start>
-          <img src="img/avatar-cher.png">
+          <img [src]="config.domain+obj.HeadPhoto">
         </ion-avatar>
-        <h2>Cher</h2>
-        <p>Ugh. As if.</p>
-        <p item-right>Ugh. As if.</p>
+        <h2>{{obj.UserName}}</h2>
+        <p>众健ID：{{obj.SysID}}</p>
       </ion-item>
     </ion-list>
+
+    <button ion-button block color="danger" class="executeButton" (tap)="execute()">立即赠送</button>
 </ion-content>

@@ -80,6 +80,12 @@ import { RechargePage } from '../pages/recharge/recharge';
 import { VippresentPage } from '../pages/vippresent/vippresent';
 
 import { VippresentdetailPage } from '../pages/vippresentdetail/vippresentdetail';
+import { SetpaypasswordPage} from '../pages/setpaypassword/setpaypassword';
+import { UpdatepasswordPage} from '../pages/updatepassword/updatepassword';
+import { WithdrawPage} from '../pages/withdraw/withdraw';
+import { WithdrawaccountPage } from '../pages/withdrawaccount/withdrawaccount';
+import { AddaliacountPage } from '../pages/addaliacount/addaliacount';
+
 
 import { TabsPage } from '../pages/tabs/tabs';
 import { ConfigProvider } from '../providers/config/config';
@@ -90,13 +96,13 @@ import { ToolsProvider } from '../providers/tools/tools';
 import { ThemeableBrowser} from '@ionic-native/themeable-browser';
 import { AlertProvider } from '../providers/alert/alert';
 import { ClearloginProvider } from '../providers/clearlogin/clearlogin';
-
 import { Camera } from '@ionic-native/camera';
 import { ImagePicker } from '@ionic-native/image-picker';
 import {File} from '@ionic-native/file';
 import { FileTransfer, FileUploadOptions, FileTransferObject } from '@ionic-native/file-transfer';
 import { ImgProvider } from '../providers/img/img';
 import { ToastProvider } from '../providers/toast/toast';
+import { RloginprocessProvider } from '../providers/rloginprocess/rloginprocess';
 // import { Alipay } from '@ionic-native/alipay';
 
 
@@ -134,7 +140,13 @@ import { ToastProvider } from '../providers/toast/toast';
     RechargePage,
     OrdersPage,
     VippresentPage,
-    VippresentdetailPage
+    VippresentdetailPage,
+    SetpaypasswordPage,
+    UpdatepasswordPage,
+    WithdrawPage,
+    WithdrawaccountPage,
+    AddaliacountPage
+
   ],
   imports: [
     BrowserModule,
@@ -180,7 +192,12 @@ import { ToastProvider } from '../providers/toast/toast';
     RechargePage,
     OrdersPage,
     VippresentPage,
-    VippresentdetailPage
+    VippresentdetailPage,
+    SetpaypasswordPage,
+    UpdatepasswordPage,
+    WithdrawPage,
+    WithdrawaccountPage,
+    AddaliacountPage
   ],
   providers: [  /*引入了自定义的服务*/
     StatusBar,
@@ -200,6 +217,7 @@ import { ToastProvider } from '../providers/toast/toast';
     FileTransfer,
     ImgProvider,
     ToastProvider,
+    RloginprocessProvider
     // Alipay
   ]
 })

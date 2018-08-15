@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { HttpServicesProvider } from '../../providers/http-services/http-services';
 import { StorageProvider } from '../../providers/storage/storage';
 import { ToastProvider } from '../../providers/toast/toast';
+import { RloginprocessProvider } from '../../providers/rloginprocess/rloginprocess'
 declare let cordova;
 /**
  * Generated class for the PaymentPage page.
@@ -23,7 +24,7 @@ export class PaymentPage {
 
   public way = 2;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private httpService: HttpServicesProvider, private storage: StorageProvider, private noticeSer: ToastProvider) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private httpService: HttpServicesProvider, private storage: StorageProvider, private noticeSer: ToastProvider,private rloginprocess:RloginprocessProvider) {
   }
 
 
@@ -59,7 +60,9 @@ export class PaymentPage {
             //支付失败
             this.noticeSer.showToast('支付失败');
           });
-        } else {
+        } else if(data.error_code == 3){
+            this.rloginprocess.rLoginProcess(this.navCtrl);
+        }else {
           this.noticeSer.showToast(data.error_message);
 
         }
@@ -75,7 +78,7 @@ export class PaymentPage {
         }
       }, (error) => {
         //支付失败
-        this.noticeSer.showToast('支付失败');
+       
       });
     }
   }

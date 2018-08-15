@@ -53,7 +53,8 @@ public history='';
         this.httpService.doPost(api,this.userinfo,(data)=>{
           if(data.error_code==0){//登录成功
               this.storage.set('token',data.data);
-              if(this.history=='order'){
+              this.storage.setSessionStorage('test','test2');
+              if(this.history=='history'){
              
                 this.navCtrl.pop();  /*返回上一个页面*/
               }else{

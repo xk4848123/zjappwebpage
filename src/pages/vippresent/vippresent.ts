@@ -4,6 +4,7 @@ import { HttpServicesProvider } from '../../providers/http-services/http-service
 import { StorageProvider } from '../../providers/storage/storage';
 import { ToastProvider } from '../../providers/toast/toast';
 import { VippresentdetailPage} from '../../pages/vippresentdetail/vippresentdetail';
+import { RloginprocessProvider } from '../../providers/rloginprocess/rloginprocess';
 /**
  * Generated class for the VippresentPage page.
  *
@@ -19,8 +20,9 @@ import { VippresentdetailPage} from '../../pages/vippresentdetail/vippresentdeta
 export class VippresentPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private httpService: HttpServicesProvider,
-    private storage: StorageProvider, private noticeSer: ToastProvider) {
+    private storage: StorageProvider, private noticeSer: ToastProvider,private rlogin:RloginprocessProvider) {
   }
+
 
   public type: string = '';
   public list: Array<any> = [];
@@ -38,6 +40,7 @@ export class VippresentPage {
 
       } else if (res.error_code == 3) {
         //抢登处理
+        this.rlogin.rLoginProcessWithHistory(this.navCtrl);
       } else {
         this.noticeSer.showToast('服务异常，请稍后重试');
       }
@@ -52,6 +55,7 @@ export class VippresentPage {
 
       } else if (res.error_code == 3) {
         //抢登处理
+        this.rlogin.rLoginProcessWithHistory(this.navCtrl);
       } else {
         this.noticeSer.showToast('服务异常，请稍后重试');
       }
