@@ -35,7 +35,7 @@ import { ToastProvider } from '../../providers/toast/toast';
  * Ionic pages and navigation.
  */
 
-@IonicPage()
+// @IonicPage()
 @Component({
   selector: 'page-user',
   templateUrl: 'user.html',

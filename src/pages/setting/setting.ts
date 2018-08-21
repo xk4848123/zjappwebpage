@@ -11,7 +11,7 @@ import { UpdatepasswordPage} from '../updatepassword/updatepassword';
  * Ionic pages and navigation.
  */
 
-@IonicPage()
+//@IonicPage()
 @Component({
   selector: 'page-setting',
   templateUrl: 'setting.html',

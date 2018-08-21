@@ -42,21 +42,6 @@ import { PcontentPage } from '../pages/pcontent/pcontent';
 
 import { PersonalPage } from '../pages/personal/personal';
 
-
-//订单页面
-import { OrderPage } from '../pages/order/order';
-
-//收货地址列表
-import { AddressPage } from '../pages/address/address';
-
-
-//增加收货地址
-import { AddaddressPage } from '../pages/addaddress/addaddress';
-
-//修改收货地址
-import { EditaddressPage } from '../pages/editaddress/editaddress';
-
-
 //选择支付方式
 import { PaymentPage } from '../pages/payment/payment';
 //设置页面
@@ -74,6 +59,7 @@ import { FandetailPage } from '../pages/fandetail/fandetail';
 //全部订单
 import { OrdersPage} from '../pages/orders/orders';
 
+import { OrderPage} from '../pages/order/order';
 
 import { RechargePage } from '../pages/recharge/recharge';
 
@@ -85,7 +71,7 @@ import { UpdatepasswordPage} from '../pages/updatepassword/updatepassword';
 import { WithdrawPage} from '../pages/withdraw/withdraw';
 import { WithdrawaccountPage } from '../pages/withdrawaccount/withdrawaccount';
 import { AddaliacountPage } from '../pages/addaliacount/addaliacount';
-
+import { AddbankacountPage } from '../pages/addbankacount/addbankacount';
 
 import { TabsPage } from '../pages/tabs/tabs';
 import { ConfigProvider } from '../providers/config/config';
@@ -122,10 +108,6 @@ import { RloginprocessProvider } from '../providers/rloginprocess/rloginprocess'
     ProductlistPage,
     PcontentPage,
     PersonalPage,
-    OrderPage,
-    AddressPage,
-    AddaddressPage,
-    EditaddressPage,
     PaymentPage,
     FansPage,
     FandetailPage,
@@ -138,6 +120,7 @@ import { RloginprocessProvider } from '../providers/rloginprocess/rloginprocess'
     IonModleGComponent,
     MywalletPage,
     RechargePage,
+    OrderPage,
     OrdersPage,
     VippresentPage,
     VippresentdetailPage,
@@ -145,7 +128,8 @@ import { RloginprocessProvider } from '../providers/rloginprocess/rloginprocess'
     UpdatepasswordPage,
     WithdrawPage,
     WithdrawaccountPage,
-    AddaliacountPage
+    AddaliacountPage,
+    AddbankacountPage
 
   ],
   imports: [
@@ -153,6 +137,7 @@ import { RloginprocessProvider } from '../providers/rloginprocess/rloginprocess'
     HttpModule, JsonpModule,
     // IonicModule.forRoot(MyApp)
     IonicModule.forRoot(MyApp,{
+      mode:'ios',
       tabsHideOnSubPages: 'true', //隐藏全部子页面 tabs
       backButtonText: '' /*配置返回按钮*/
     })        
@@ -174,10 +159,6 @@ import { RloginprocessProvider } from '../providers/rloginprocess/rloginprocess'
     ProductlistPage,
     PcontentPage,
     PersonalPage,
-    OrderPage,
-    AddressPage,
-    AddaddressPage,
-    EditaddressPage,
     PaymentPage,
     FansPage,
     FandetailPage,
@@ -191,13 +172,15 @@ import { RloginprocessProvider } from '../providers/rloginprocess/rloginprocess'
     MywalletPage,
     RechargePage,
     OrdersPage,
+    OrderPage,
     VippresentPage,
     VippresentdetailPage,
     SetpaypasswordPage,
     UpdatepasswordPage,
     WithdrawPage,
     WithdrawaccountPage,
-    AddaliacountPage
+    AddaliacountPage,
+    AddbankacountPage
   ],
   providers: [  /*引入了自定义的服务*/
     StatusBar,

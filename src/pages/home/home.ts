@@ -5,21 +5,22 @@ import { ConfigProvider } from '../../providers/config/config';
 import { HttpServicesProvider } from '../../providers/http-services/http-services';
 import {Http,Jsonp} from "@angular/http";
 
-//A组件
-import { IonModleAComponent} from '../../components/ion-modle-a/ion-modle-a';
-//B组件
-import { IonModleBComponent} from '../../components/ion-modle-b/ion-modle-b';
-//C组件
-import { IonModleCComponent} from '../../components/ion-modle-c/ion-modle-c';
-//D组件
-import { IonModleDComponent} from '../../components/ion-modle-d/ion-modle-d';
-//G组件
-import { IonModleGComponent} from '../../components/ion-modle-g/ion-modle-g';
-//解析html
-import { DomSanitizer } from '@angular/platform-browser';
-//轮播页
-import { IndexAdvPage } from '../index-adv/index-adv';
+// //A组件
+// import { IonModleAComponent} from '../../components/ion-modle-a/ion-modle-a';
+// //B组件
+// import { IonModleBComponent} from '../../components/ion-modle-b/ion-modle-b';
+// //C组件
+// import { IonModleCComponent} from '../../components/ion-modle-c/ion-modle-c';
+// //D组件
+// import { IonModleDComponent} from '../../components/ion-modle-d/ion-modle-d';
+// //G组件
+// import { IonModleGComponent} from '../../components/ion-modle-g/ion-modle-g';
+// //解析html
+// import { DomSanitizer } from '@angular/platform-browser';
+// //轮播页
+// import { IndexAdvPage } from '../index-adv/index-adv';
 //搜索页面
+import { ComponentsModule } from '../../components/components.module';
 import { SearchPage } from '../search/search';
 
 //商品详情

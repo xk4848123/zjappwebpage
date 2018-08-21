@@ -16,7 +16,7 @@ import { CartPage } from '../cart/cart';
  * Ionic pages and navigation.
  */
 
-@IonicPage()
+//@IonicPage()
 @Component({
   selector: 'page-pcontent',
   templateUrl: 'pcontent.html',

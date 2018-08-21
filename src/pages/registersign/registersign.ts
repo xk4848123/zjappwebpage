@@ -16,7 +16,7 @@ import { StorageProvider } from '../../providers/storage/storage';
  * Ionic pages and navigation.
  */
 
-@IonicPage()
+//@IonicPage()
 @Component({
   selector: 'page-registersign',
   templateUrl: 'registersign.html',

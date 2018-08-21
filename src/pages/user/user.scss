@@ -74,7 +74,6 @@ page-user {
         line-height: 4rem;
         font-size: 1.6rem;
       }
-    
       ion-grid span{
         width:100%;
         word-break:keep-all;             /* 不换行 */
@@ -110,7 +109,7 @@ page-user {
       }
       .person{
         height: 12rem;
-    
+        background:url('../assets/imgs/usercenter.png');
       }
       .headimg{
           height: 6rem;
@@ -126,5 +125,8 @@ page-user {
           border-radius: 50%;
           display: none;
     
+      }
+      ion-list p {
+          color: black !important;
       }
 }

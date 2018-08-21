@@ -10,13 +10,13 @@
   </ion-navbar>
 </ion-header>
 <ion-content style="background: #eeeeee">
-  <ion-list style="margin-bottom: 1rem;" *ngIf="!obj">
+  <ion-list style="margin: 1rem 0 2rem 0;" *ngIf="!obj">
     <ion-item (tap)= "chooseAcount()">
       <h2>请选择提现账号</h2>
     </ion-item>
   </ion-list>
 
-  <ion-list style="margin-bottom: 1rem;margin-top: 0.5rem;" *ngIf="obj">
+  <ion-list style="margin: 1rem 0 2rem 0;" *ngIf="obj">
       <ion-item *ngIf="obj.type == 1" (tap)= "chooseAcount()">
           <ion-avatar item-start>
               <img src="assets/imgs/alipay.png">

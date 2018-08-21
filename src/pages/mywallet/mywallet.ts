@@ -9,7 +9,7 @@ import { WithdrawPage } from '../withdraw/withdraw'
  * Ionic pages and navigation.
  */
 
-@IonicPage()
+//@IonicPage()
 @Component({
   selector: 'page-mywallet',
   templateUrl: 'mywallet.html',
@@ -86,7 +86,11 @@ export class MywalletPage {
   this.renderer2.setStyle(treasureImgDivArrays[1],'left',treasureImgTwoLeft +'px');
   this.renderer2.setStyle(treasureImgDivArrays[2],'left',treasureImgThreeLeft +'px');
   this.renderer2.setStyle(treasureImgDivArrays[3],'left',treasureImgFourLeft +'px');
-  
+  // 自动拓展
+  let mygoldDiv = this.el.nativeElement.querySelector('.mygold');
+  let goldOriginalHeight = mygoldDiv.offsetHeight;
+  let expandHeight = goldOriginalHeight + 66 + 'px';
+  this.renderer2.setStyle(mygoldDiv,'height',expandHeight);
 }
 
 }

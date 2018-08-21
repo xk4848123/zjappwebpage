@@ -12,7 +12,7 @@ declare let cordova;
  * Ionic pages and navigation.
  */
 
-@IonicPage()
+//@IonicPage()
 @Component({
   selector: 'page-payment',
   templateUrl: 'payment.html',

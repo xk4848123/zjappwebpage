@@ -12,7 +12,7 @@ import { RloginprocessProvider } from '../../providers/rloginprocess/rloginproce
  * Ionic pages and navigation.
  */
 
-@IonicPage()
+//@IonicPage()
 @Component({
   selector: 'page-vippresent',
   templateUrl: 'vippresent.html',

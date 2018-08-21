@@ -9,7 +9,7 @@ import { PaymentPage } from '../payment/payment';
  * Ionic pages and navigation.
  */
 
-@IonicPage()
+//@IonicPage()
 @Component({
   selector: 'page-recharge',
   templateUrl: 'recharge.html',

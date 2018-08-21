@@ -13,7 +13,7 @@ import { AlertProvider } from '../../providers/alert/alert';
  * Ionic pages and navigation.
  */
 
-@IonicPage()
+//@IonicPage()
 @Component({
   selector: 'page-setpaypassword',
   templateUrl: 'setpaypassword.html',
@@ -94,17 +94,18 @@ export class SetpaypasswordPage {
                 text: '确定',
                 handler: data => {
                   apiUrl = 'v1/LoginAndRegister/verify/' + res.data;
-                  this.httpService.doPost(apiUrl, { token: token, password: data }, (result) => {
-                    if (res.error_code == 0) {//请求成功
+                  this.httpService.doPost(apiUrl, { token: token, paypassword: data[0] }, (result) => {
+                    console.log(result);
+                    if (result.error_code == 0) {//请求成功
                       this.noticeSer.showToast('支付密码设置成功');
                       this.navCtrl.pop();
-                    } else if (res.error_code == 3) {//token过期
+                    } else if (result.error_code == 3) {//token过期
                       this.rlogin.rLoginProcess(this.navCtrl);
                     }
                     else {
-                      this.noticeSer.showToast('服务异常：' + res.error_message);
+                      this.noticeSer.showToast('服务异常：' + result.error_message);
                     }
-                  })
+                  });
                 }
               }
             ]

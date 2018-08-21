@@ -10,7 +10,7 @@ import { HttpServicesProvider } from '../../providers/http-services/http-service
  * Ionic pages and navigation.
  */
 
-@IonicPage()
+//@IonicPage()
 @Component({
   selector: 'page-registerpassword',
   templateUrl: 'registerpassword.html',

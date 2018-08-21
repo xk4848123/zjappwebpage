@@ -6,6 +6,9 @@ import { HttpServicesProvider } from '../../providers/http-services/http-service
 import { ConfigProvider } from '../../providers/config/config';
 import { RloginprocessProvider } from '../../providers/rloginprocess/rloginprocess';
 import { AddaliacountPage } from '../../pages/addaliacount/addaliacount';
+import { AddbankacountPage } from '../../pages/addbankacount/addbankacount';
+
+
 /**
  * Generated class for the WithdrawaccountPage page.
  *
@@ -13,7 +16,7 @@ import { AddaliacountPage } from '../../pages/addaliacount/addaliacount';
  * Ionic pages and navigation.
  */
 
-@IonicPage()
+//@IonicPage()
 @Component({
   selector: 'page-withdrawaccount',
   templateUrl: 'withdrawaccount.html',
@@ -57,7 +60,7 @@ export class WithdrawaccountPage {
   }
 
   addbankacount(){
-
+    this.navCtrl.push(AddbankacountPage);
   }
 
   carryAli(key){

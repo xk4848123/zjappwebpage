@@ -5,10 +5,6 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 import { LoginPage } from '../login/login';
 
-//引入收货地址页面
-
-import { AddressPage } from '../address/address';
-
 
 //选择支付方式
 import { PaymentPage } from '../payment/payment';
@@ -29,7 +25,7 @@ import { ToolsProvider } from '../../providers/tools/tools';
  * Ionic pages and navigation.
  */
 
-@IonicPage()
+// @IonicPage()
 @Component({
   selector: 'page-order',
   templateUrl: 'order.html',
@@ -38,7 +34,6 @@ export class OrderPage {
 
   public list=[];
   public LoginPage=LoginPage;
-  public AddressPage=AddressPage;
 
 
   public allPrice=0;  /*总价*/

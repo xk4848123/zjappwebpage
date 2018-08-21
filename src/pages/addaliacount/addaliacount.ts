@@ -10,26 +10,19 @@ import { RloginprocessProvider } from '../../providers/rloginprocess/rloginproce
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
  */
-
-@IonicPage()
+//@IonicPage()
 @Component({
   selector: 'page-addaliacount',
   templateUrl: 'addaliacount.html',
 })
 export class AddaliacountPage {
-
   constructor(public navCtrl: NavController, public navParams: NavParams, private httpService: HttpServicesProvider,
     private storage: StorageProvider, private noticeSer: ToastProvider, private rlogin: RloginprocessProvider) {
     console.log('构造addaliacount');
   }
-
-
   public aliname: string;
   public aliacount: string;
-
-
   confirm() {
-
     if(!this.aliname){
       this.noticeSer.showToast('姓名不可为空');
       return;
