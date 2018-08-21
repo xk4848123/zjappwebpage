@@ -85,13 +85,20 @@ import { ClearloginProvider } from '../providers/clearlogin/clearlogin';
 import { Camera } from '@ionic-native/camera';
 import { ImagePicker } from '@ionic-native/image-picker';
 import {File} from '@ionic-native/file';
-import { FileTransfer, FileUploadOptions, FileTransferObject } from '@ionic-native/file-transfer';
+import { FileTransfer, FileTransferObject } from '@ionic-native/file-transfer';
 import { ImgProvider } from '../providers/img/img';
 import { ToastProvider } from '../providers/toast/toast';
 import { RloginprocessProvider } from '../providers/rloginprocess/rloginprocess';
 // import { Alipay } from '@ionic-native/alipay';
-
-
+/**商品详情 */
+import {ProductDetailPageModule} from "../pages/product-detail/product-detail.module";
+import {ProductDetailPage} from "../pages/product-detail/product-detail";
+/**modal弹出框 */
+import { CarModalComponent } from "../components/car-modal/car-modal";
+// import { isPartMatch } from '../../node_modules/ionic-angular/umd/navigation/url-serializer';
+/**分享 */
+import { ShareComponent } from '../components/share/share';
+import { AppshareProvider } from '../providers/appshare/appshare';
 @NgModule({
   declarations: [
     MyApp,
@@ -129,18 +136,20 @@ import { RloginprocessProvider } from '../providers/rloginprocess/rloginprocess'
     WithdrawPage,
     WithdrawaccountPage,
     AddaliacountPage,
-    AddbankacountPage
-
+    AddbankacountPage,
+    CarModalComponent,
+    ShareComponent
   ],
   imports: [
     BrowserModule,
     HttpModule, JsonpModule,
-    // IonicModule.forRoot(MyApp)
+    ProductDetailPageModule,
     IonicModule.forRoot(MyApp,{
       mode:'ios',
       tabsHideOnSubPages: 'true', //隐藏全部子页面 tabs
-      backButtonText: '' /*配置返回按钮*/
-    })        
+      backButtonText: '', /*配置返回按钮*/
+      iconMode: 'ios'
+    })
     
   ],
   bootstrap: [IonicApp],
@@ -180,7 +189,10 @@ import { RloginprocessProvider } from '../providers/rloginprocess/rloginprocess'
     WithdrawPage,
     WithdrawaccountPage,
     AddaliacountPage,
-    AddbankacountPage
+    AddbankacountPage,
+    ProductDetailPage,
+    CarModalComponent,
+    ShareComponent
   ],
   providers: [  /*引入了自定义的服务*/
     StatusBar,
@@ -200,8 +212,8 @@ import { RloginprocessProvider } from '../providers/rloginprocess/rloginprocess'
     FileTransfer,
     ImgProvider,
     ToastProvider,
-    RloginprocessProvider
-    // Alipay
+    RloginprocessProvider,
+    AppshareProvider
   ]
 })
 export class AppModule {}

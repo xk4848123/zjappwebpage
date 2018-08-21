@@ -1,7 +1,12 @@
 <?xml version='1.0' encoding='utf-8'?>
 <widget id="io.ionic.starter" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<<<<<<< HEAD
     <name>众健商城3.0</name>
     <description>一款商城软件</description>
+=======
+    <name>zjappwebpage</name>
+    <description>An awesome Ionic/Cordova app.</description>
+>>>>>>> c9bbca26d55ac733ebc29878ec9c3e7d631f8ce5
     <author email="hi@ionicframework" href="http://ionicframework.com/">Ionic Framework Team</author>
     <content src="index.html" />
     <access origin="*" />
@@ -91,6 +96,12 @@
         <variable name="APP_ID" value="2018011001747966" />
     </plugin>
     <plugin name="cordova-plugin-themeablebrowser" spec="^0.2.17" />
+    <plugin name="cordova-plugin-wechat" spec="^2.1.0">
+        <variable name="WECHATAPPID" value="wxf7999a70965260ef" />
+    </plugin>
+    <plugin name="cordova-plugin-qqsdk" spec="^0.9.7">
+        <variable name="QQ_APP_ID" value="1106729276" />
+    </plugin>
     <engine name="android" spec="6.4.0" />
     <engine name="ios" spec="4.5.5" />
 </widget>

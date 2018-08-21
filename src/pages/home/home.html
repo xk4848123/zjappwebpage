@@ -6,7 +6,7 @@
 
 
 <ion-content>
-    <div class="tc">
+    <div class="tc" [ngClass]="{'tcRed':isRed}" #search>
       <div>
         <ion-searchbar class="tsearch" (tap)="goSearch()"></ion-searchbar>
       </div>

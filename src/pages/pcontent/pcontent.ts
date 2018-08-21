@@ -139,11 +139,10 @@ export class PcontentPage {
       if(this.hasData(storageData,json.product_id)){  /*购物车有数据*/
 
           //修改刚才购物车里面的数量
-          
-          for(var i=0;i<storageData.length;i++){
+          for(var j=0;j<storageData.length;j++){
             
-            if(storageData[i].product_id==product_id){
-               storageData[i].product_count+=json.product_count;  /*以前的数量加上选择的数量*/
+            if(storageData[j].product_id==product_id){
+               storageData[j].product_count+=json.product_count;  /*以前的数量加上选择的数量*/
             }
           }
           
