@@ -97,19 +97,19 @@
     }
     .up::before{
         top: -0.5rem;
-        content:url("../../assets/icon/upR.png");
+        content:url("../assets/icon/upR.png");
     }
     .up::after{
         top: 0.2rem;
-        content:url("../../assets/icon/down.png");
+        content:url("../assets/icon/down.png");
     }
     .down::before{
         top: -0.5rem;
-        content:url("../../assets/icon/up.png");
+        content:url("../assets/icon/up.png");
     }
     .down::after{
         top: 0.2rem;
-        content:url("../../assets/icon/downR.png");
+        content:url("../assets/icon/downR.png");
     }
 }
 
