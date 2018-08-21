@@ -24,6 +24,9 @@ export class CartPage {
   constructor(public navCtrl: NavController,public config:ConfigProvider,public storage:StorageProvider) {
 
   }
+  ionViewDidLoad(){
+    console.log("购物车第一次加载！");
+  }
   ionViewDidEnter(){
      this.getCartsData();
 

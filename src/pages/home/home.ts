@@ -1,26 +1,10 @@
-import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { Component,ViewChild, NgZone } from '@angular/core';
+import { NavController,Content } from 'ionic-angular';
 import { ConfigProvider } from '../../providers/config/config';
 
 import { HttpServicesProvider } from '../../providers/http-services/http-services';
-import {Http,Jsonp} from "@angular/http";
-
-// //A组件
-// import { IonModleAComponent} from '../../components/ion-modle-a/ion-modle-a';
-// //B组件
-// import { IonModleBComponent} from '../../components/ion-modle-b/ion-modle-b';
-// //C组件
-// import { IonModleCComponent} from '../../components/ion-modle-c/ion-modle-c';
-// //D组件
-// import { IonModleDComponent} from '../../components/ion-modle-d/ion-modle-d';
-// //G组件
-// import { IonModleGComponent} from '../../components/ion-modle-g/ion-modle-g';
-// //解析html
-// import { DomSanitizer } from '@angular/platform-browser';
-// //轮播页
-// import { IndexAdvPage } from '../index-adv/index-adv';
+import {Jsonp} from "@angular/http";
 //搜索页面
-import { ComponentsModule } from '../../components/components.module';
 import { SearchPage } from '../search/search';
 
 //商品详情
@@ -32,7 +16,8 @@ import { PcontentPage } from '../pcontent/pcontent';
   templateUrl: 'home.html'
 })
 export class HomePage {
-
+  @ViewChild(Content) content: Content;
+  @ViewChild('search') search;
   public PcontentPage=PcontentPage;
   public focusList=[];  /*数组 轮播图*/
   public bestList=[];   /*精品推荐*/
@@ -69,10 +54,10 @@ export class HomePage {
   public paramsD6 = new Array();/*D模块参数*/
   public paramsG6 = new Array();/*G模块参数*/
   public testParams = new Array();
-
+  public isRed = false;
   
 
-  constructor(public navCtrl: NavController,public config:ConfigProvider,public jsonp:Jsonp,public httpService:HttpServicesProvider) {
+  constructor(public ngzone: NgZone,public navCtrl: NavController,public config:ConfigProvider,public jsonp:Jsonp,public httpService:HttpServicesProvider) {
     this.testParams = [{"type":1,"sort":1,"title":"促/销/专/区","content1":{"pic":"assets/imgs/mod2.png","picType":1,"picUrl":""}},
                        {"type":2,"sort":2,"title":"","content1":{"pic":"assets/imgs/modb1.png","picType":2,"picUrl":""},
                        "content2":{"pic":"assets/imgs/modb2.png","picType":2,"picUrl":""},
@@ -188,8 +173,18 @@ export class HomePage {
    
   }
   ionViewDidLoad() {
-    console.log('ionViewDidLoad DompagePage11111111111111');
     this.get();
+    this.content.ionScroll.subscribe(($event: any) => {
+      this.ngzone.run(() => {//如果在页面滑动过程中对数据进行修改，页面是不会重构的。所以在对应的操作中需要使用如下方法，使页面能够重构。
+          let length = $event.scrollTop;//当前滑动的距离
+          if(length>=219.4){
+            this.isRed = true;
+          }else{
+            this.isRed = false;
+          }
+          this.search.nativeElement//获取html中标记为one的元素
+      })
+  })
   }
   //测试方法
   say(){
