@@ -29,7 +29,6 @@ public history='';
   }
 
   constructor(public navCtrl: NavController, public navParams:NavParams ,public httpService:HttpServicesProvider,public storage:StorageProvider,public noticeSer:ToastProvider) {
-
       this.history=this.navParams.get('history');
   }
 

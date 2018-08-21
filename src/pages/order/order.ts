@@ -133,7 +133,7 @@ export class OrderPage {
         //提交订单
 
             let userinfo:any=this.userinfo;  
-            var uid:any=userinfo['_id'];
+            // var uid:any=userinfo['_id'];
             var address:any=this.address['address'];
             var phone:any=this.address['phone'];
             var name:any=this.address['name'];

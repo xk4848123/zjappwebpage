@@ -6,7 +6,7 @@ import { StorageProvider } from '../../providers/storage/storage';
 
 import { HttpServicesProvider } from '../../providers/http-services/http-services';
 
-import { ToastProvider } from '../../providers/toast/toast';
+// import { ToastProvider } from '../../providers/toast/toast';
 /**
  * Generated class for the FandetailPage page.
  *
@@ -19,11 +19,12 @@ import { ToastProvider } from '../../providers/toast/toast';
   selector: 'page-fandetail',
   templateUrl: 'fandetail.html',
 })
+//private noticeSer: ToastProvider
 export class FandetailPage {
 
   data:any;
    public fansList='';
-  constructor(public navCtrl: NavController, public navParams: NavParams,public storage:StorageProvider,public httpService:HttpServicesProvider,private noticeSer: ToastProvider) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,public storage:StorageProvider,public httpService:HttpServicesProvider) {
   }
 
   ionViewDidLoad() {

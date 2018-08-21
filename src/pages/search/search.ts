@@ -36,10 +36,15 @@ export class SearchPage {
 
   public page=1; /*分页*/
 
-  public hasData=true;  /*是否有数据*/
+  // public hasData=true;  /*是否有数据*/
 
   public historyList=[]; /*历史记录的数据*/
+
+  public priceFlag = false; /*价格排序方式，默认正序 */
+
+  public elecFlag = false; /*积分排序方式，默认正序 */
   
+  public selectTag = "sale";
 
   constructor(public navCtrl: NavController, public navParams: NavParams,public config:ConfigProvider,public httpService:HttpServicesProvider,public storage:StorageProvider,public alertCtrl: AlertController) {
       
@@ -53,54 +58,106 @@ export class SearchPage {
 
 
   getSearchList(infiniteScroll){
-
-  
-
      if(!infiniteScroll){  /*点击搜索按钮*/
         this.page=1;
-        this.hasData=true; 
+        // this.hasData=true; 
         this.content.scrollToTop(0); /*回到顶部*/
         //调用保存历史记录的方法
         this.saveHistory();
-
      }
-
-      // console.log(this.keywords);
-
-      var api='v1/ProductManager/searchProduct?key='+this.keywords;
-      this.httpService.requestData(api,(data)=>{
-       
+      var api='v1/ProductManager/searchProduct';
+      var param = {"key":this.keywords,"type":1};
+      this.httpService.doFormPost(api,param,(data)=>{
           if(this.page==1){  /*第一页 替换数据*/
-            this.list=data.result;           
+            this.list=data.data;
           }else{
-            this.list=this.list.concat(data.result);  /*拼接数据*/
-          }          
+            this.list=this.list.concat(data.data);  /*拼接数据*/
+          }         
           this.flag=true;  /*显示商品列表*/
           if(infiniteScroll){
             //告诉ionic 请求数据完成
             infiniteScroll.complete();    
-             /*没有数据停止上拉更新*/
-
-             if(data.result<10){
-                this.hasData=false; 
-             }
+            //  /*没有数据停止上拉更新*/
+            //  if(data.result<10){
+            //     this.hasData=false; 
+            //  }
           }
-      })      
-
-
+      })
   } 
-
+  //按价格排序
+  search_price(){
+    this.content.scrollToTop(0); /*回到顶部*/
+    var api='v1/ProductManager/searchProduct';
+    var tag :(number);
+    if(this.priceFlag){
+      tag = 3;
+    }else{
+      tag = 2;
+    }
+    var param = {"key":this.keywords,"type":tag};
+    this.httpService.doFormPost(api,param,(data)=>{
+        if(this.page==1){  /*第一页 替换数据*/
+          this.list=data.data;           
+        }else{
+          this.list=this.list.concat(data.data);  /*拼接数据*/
+        }         
+        this.flag=true;  /*显示商品列表*/
+    })
+    this.priceFlag = !this.priceFlag;
+    this.elecFlag = false;
+    this.selectTag = 'price';
+  }
+  //按销量排序
+  search_sale(){
+    this.content.scrollToTop(0); /*回到顶部*/
+    var api='v1/ProductManager/searchProduct';
+    var param = {"key":this.keywords,"type":1};
+    this.httpService.doFormPost(api,param,(data)=>{ 
+        if(this.page==1){  /*第一页 替换数据*/
+          this.list=data.data;           
+        }else{
+          this.list=this.list.concat(data.data);  /*拼接数据*/
+        }         
+        this.flag=true;  /*显示商品列表*/
+    })
+    this.selectTag = "sale";
+    this.elecFlag = false;
+    this.priceFlag = false;
+  }
+  //按积分排序
+  search_elec(){
+    this.content.scrollToTop(0); /*回到顶部*/
+    var api='v1/ProductManager/searchProduct';
+    var tag :(number);
+    if(this.elecFlag){
+      tag = 6;
+    }else{
+      tag = 5;
+    }
+    var param = {"key":this.keywords,"type":tag};
+    this.httpService.doFormPost(api,param,(data)=>{
+        if(this.page==1){  /*第一页 替换数据*/
+          this.list=data.data;           
+        }else{
+          this.list=this.list.concat(data.data);  /*拼接数据*/
+        }         
+        this.flag=true;  /*显示商品列表*/
+    })
+    this.elecFlag = !this.elecFlag;
+    this.priceFlag = false;
+    this.selectTag = 'elec';
+  }
+  //跳转详情页
+  goProduct(id){
+    this.navCtrl.push('ProductDetailPage',{
+      id : id
+    });
+  }
   //点击历史记录执行的方法
 
   goSearch(keywords){
-
-    // console.log(keywords);
     this.keywords=keywords;
-
     this.getSearchList('');
-
-
-
   }
 
   //加载更多
@@ -121,26 +178,16 @@ export class SearchPage {
 
     //2.判断历史记录存在不存在
     if(history){ /*有*/
-      // ['女装','手机','电脑','男装']
-      if(history.indexOf(this.keywords)==-1){
-
+      if(history.indexOf(this.keywords)==-1 && this.keywords!=''){
         history.push(this.keywords);
         //重新写入
         this.storage.set('historyData',history);
       }
-
-
-
     }else{ /*以前没有*/
-
-      this.historyList.push(this.keywords);
-      // historyList： ['女装']
-
-      //写入到localstorage
-
-      this.storage.set('historyData',this.historyList);
-
-
+      if(this.keywords!=''){
+        this.historyList.push(this.keywords);
+        this.storage.set('historyData',this.historyList);
+      }
     }
 
   }
@@ -151,6 +198,7 @@ export class SearchPage {
      var history=this.storage.get('historyData');
      if(history){  /*如果历史记录存在 把历史记录给数据*/
         this.historyList=history;
+        console.log(history);
      }
   }
   //删除历史记录
@@ -182,14 +230,10 @@ export class SearchPage {
       ]
     });
     confirm.present();
-
-
-
-
-
-
   }
-
-
-
+  /*清空历史记录*/
+  localEmpty(){
+    this.historyList.splice(0,this.historyList.length);
+    this.storage.set('historyData',this.historyList);
+  }
 }

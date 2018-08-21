@@ -1,20 +1,15 @@
 import { NgModule } from '@angular/core';
-import { IonModleAComponent } from './ion-modle-a/ion-modle-a';
-import { IonModleBComponent } from './ion-modle-b/ion-modle-b';
-import { IonModleCComponent } from './ion-modle-c/ion-modle-c';
-import { IonModleDComponent } from './ion-modle-d/ion-modle-d';
-import { IonModleGComponent } from './ion-modle-g/ion-modle-g';
+import { CarModalComponent } from './car-modal/car-modal';
+import { ShareComponent } from './share/share';
 @NgModule({
-	declarations: [IonModleAComponent,
-    IonModleBComponent,
-    IonModleCComponent,
-    IonModleDComponent,
-    IonModleGComponent],
+	declarations: [
+    CarModalComponent,
+    ShareComponent,
+    ],
 	imports: [],
-	exports: [IonModleAComponent,
-    IonModleBComponent,
-    IonModleCComponent,
-    IonModleDComponent,
-    IonModleGComponent]
+	exports: [
+    CarModalComponent,
+    ShareComponent,
+    ]
 })
 export class ComponentsModule {}
