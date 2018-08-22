@@ -2,14 +2,6 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 
-
-import { LoginPage } from '../login/login';
-
-
-//选择支付方式
-import { PaymentPage } from '../payment/payment';
-
-
 import { StorageProvider } from '../../providers/storage/storage';
 import { ConfigProvider } from '../../providers/config/config';
 
@@ -25,7 +17,7 @@ import { ToolsProvider } from '../../providers/tools/tools';
  * Ionic pages and navigation.
  */
 
-// @IonicPage()
+@IonicPage()
 @Component({
   selector: 'page-order',
   templateUrl: 'order.html',
@@ -33,7 +25,7 @@ import { ToolsProvider } from '../../providers/tools/tools';
 export class OrderPage {
 
   public list=[];
-  public LoginPage=LoginPage;
+  public LoginPage='LoginPage';
 
 
   public allPrice=0;  /*总价*/
@@ -161,7 +153,7 @@ export class OrderPage {
   
             },(data)=>{          
                 if(data.success){
-                  this.navCtrl.push(PaymentPage);
+                  this.navCtrl.push('PaymentPage');
                   // alert('成功')
 
                   console.log(data);

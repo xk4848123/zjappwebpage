@@ -14,7 +14,7 @@ import { HttpServicesProvider } from '../../providers/http-services/http-service
  * Ionic pages and navigation.
  */
 
-//@IonicPage()
+@IonicPage()
 @Component({
   selector: 'page-fandetail',
   templateUrl: 'fandetail.html',

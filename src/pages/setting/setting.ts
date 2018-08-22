@@ -2,8 +2,6 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController } from 'ionic-angular';
 import { ThemeableBrowser } from '@ionic-native/themeable-browser';
 import { ConfigProvider } from '../../providers/config/config';
-import { SetpaypasswordPage } from '../setpaypassword/setpaypassword';
-import { UpdatepasswordPage} from '../updatepassword/updatepassword';
 /**
  * Generated class for the SettingPage page.
  *
@@ -11,16 +9,16 @@ import { UpdatepasswordPage} from '../updatepassword/updatepassword';
  * Ionic pages and navigation.
  */
 
-//@IonicPage()
+@IonicPage()
 @Component({
   selector: 'page-setting',
   templateUrl: 'setting.html',
 })
 export class SettingPage {
 
-  public SetpaypasswordPage=SetpaypasswordPage;
+  public SetpaypasswordPage='SetpaypasswordPage';
 
-  public UpdatepasswordPage=UpdatepasswordPage;
+  public UpdatepasswordPage='UpdatepasswordPage';
 
   constructor(public navCtrl: NavController, private themeableBrowser: ThemeableBrowser, public config: ConfigProvider) {
   }

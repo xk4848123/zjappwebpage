@@ -1,13 +1,11 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { WithdrawaccountPage } from '../withdrawaccount/withdrawaccount';
 import { StorageProvider } from '../../providers/storage/storage';
 import { ToastProvider } from '../../providers/toast/toast';
 import { HttpServicesProvider } from '../../providers/http-services/http-services';
 import { RloginprocessProvider } from '../../providers/rloginprocess/rloginprocess';
 import { ConfigProvider } from '../../providers/config/config';
 import { AlertProvider } from '../../providers/alert/alert';
-import { SetpaypasswordPage } from '../setpaypassword/setpaypassword';
 /**
  * Generated class for the WithdrawPage page.
  *
@@ -15,7 +13,7 @@ import { SetpaypasswordPage } from '../setpaypassword/setpaypassword';
  * Ionic pages and navigation.
  */
 
-//@IonicPage()
+@IonicPage()
 @Component({
   selector: 'page-withdraw',
   templateUrl: 'withdraw.html',
@@ -42,7 +40,7 @@ export class WithdrawPage {
 
   chooseAcount(){
 
-    this.navCtrl.push(WithdrawaccountPage,{callback: this.getData});
+    this.navCtrl.push('WithdrawaccountPage',{callback: this.getData});
 
   }
   ionViewWillEnter() {
@@ -119,7 +117,7 @@ export class WithdrawPage {
         this.rlogin.rLoginProcess(this.navCtrl);
       } else if (res.error_code == -1) {//设置支付密码
         this.noticeSer.showToast('您还未设置支付密码');
-        this.navCtrl.push(SetpaypasswordPage);
+        this.navCtrl.push('SetpaypasswordPage');
       } else if(res.error_code == 5){
         this.noticeSer.showToast('您的现金币被冻结，请和工作人员联系');
       }

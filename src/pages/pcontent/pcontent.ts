@@ -6,8 +6,6 @@ import { ConfigProvider } from '../../providers/config/config';
 import { HttpServicesProvider } from '../../providers/http-services/http-services';
 
 import { StorageProvider } from '../../providers/storage/storage';
-//购物车页面
-import { CartPage } from '../cart/cart';
 
 /**
  * Generated class for the PcontentPage page.
@@ -16,7 +14,7 @@ import { CartPage } from '../cart/cart';
  * Ionic pages and navigation.
  */
 
-//@IonicPage()
+@IonicPage()
 @Component({
   selector: 'page-pcontent',
   templateUrl: 'pcontent.html',
@@ -27,7 +25,7 @@ export class PcontentPage {
 
   @ViewChild('myattr') myattr:ElementRef;
 
-  public CartPage=CartPage;
+  public CartPage='CartPage';
 
   public tabs='plist';  /*商品列表选中*/
 

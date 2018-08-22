@@ -3,7 +3,6 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { HttpServicesProvider } from '../../providers/http-services/http-services';
 import { StorageProvider } from '../../providers/storage/storage';
 import { ToastProvider } from '../../providers/toast/toast';
-import { VippresentdetailPage} from '../../pages/vippresentdetail/vippresentdetail';
 import { RloginprocessProvider } from '../../providers/rloginprocess/rloginprocess';
 /**
  * Generated class for the VippresentPage page.
@@ -12,7 +11,7 @@ import { RloginprocessProvider } from '../../providers/rloginprocess/rloginproce
  * Ionic pages and navigation.
  */
 
-//@IonicPage()
+@IonicPage()
 @Component({
   selector: 'page-vippresent',
   templateUrl: 'vippresent.html',
@@ -70,7 +69,7 @@ export class VippresentPage {
   }
 
   GiveImmediately(sendHeadId){
-     this.navCtrl.push(VippresentdetailPage,{
+     this.navCtrl.push('VippresentdetailPage',{
        sendHeadId: sendHeadId
      })
   }

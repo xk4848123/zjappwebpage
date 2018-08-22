@@ -13,7 +13,7 @@ import { AlertProvider } from '../../providers/alert/alert';
  * Ionic pages and navigation.
  */
 
-// @IonicPage()
+@IonicPage()
 @Component({
   selector: 'page-orders',
   templateUrl: 'orders.html',

@@ -5,8 +5,6 @@ import { ToastProvider } from '../../providers/toast/toast';
 import { HttpServicesProvider } from '../../providers/http-services/http-services';
 import { ConfigProvider } from '../../providers/config/config';
 import { RloginprocessProvider } from '../../providers/rloginprocess/rloginprocess';
-import { AddaliacountPage } from '../../pages/addaliacount/addaliacount';
-import { AddbankacountPage } from '../../pages/addbankacount/addbankacount';
 
 
 /**
@@ -16,7 +14,7 @@ import { AddbankacountPage } from '../../pages/addbankacount/addbankacount';
  * Ionic pages and navigation.
  */
 
-//@IonicPage()
+@IonicPage()
 @Component({
   selector: 'page-withdrawaccount',
   templateUrl: 'withdrawaccount.html',
@@ -56,11 +54,11 @@ export class WithdrawaccountPage {
   }
 
   addaliacount(){
-    this.navCtrl.push(AddaliacountPage);
+    this.navCtrl.push('AddaliacountPage');
   }
 
   addbankacount(){
-    this.navCtrl.push(AddbankacountPage);
+    this.navCtrl.push('AddbankacountPage');
   }
 
   carryAli(key){

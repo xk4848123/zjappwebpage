@@ -1,8 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
-import { UserPage } from '../user/user';
-
 import { StorageProvider } from '../../providers/storage/storage';
 
 import { ToastProvider } from '../../providers/toast/toast';
@@ -14,7 +12,7 @@ import { ConfigProvider } from '../../providers/config/config';
 import { HttpServicesProvider } from '../../providers/http-services/http-services';
 import { RloginprocessProvider } from '../../providers/rloginprocess/rloginprocess'
 
-//@IonicPage()
+@IonicPage()
 @Component({
   selector: 'page-personal',
   templateUrl: 'personal.html',

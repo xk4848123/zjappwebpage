@@ -1,11 +1,10 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController, IonicPage } from 'ionic-angular';
 
 import { ConfigProvider } from '../../providers/config/config';
 import { StorageProvider } from '../../providers/storage/storage';
-import { OrderPage } from '../order/order';
 
-
+@IonicPage()
 @Component({
   selector: 'page-cart',
   templateUrl: 'cart.html'
@@ -193,7 +192,7 @@ export class CartPage {
 
       if(tempArr.length>0){
         this.storage.set('order_data',tempArr);
-        this.navCtrl.push(OrderPage);
+        this.navCtrl.push('OrderPage');
       }else{
 
         alert('您还没有选中数据');

@@ -18,60 +18,60 @@ import{ IonModleDComponent} from './../components/ion-modle-d/ion-modle-d';
 import { IonModleGComponent} from './../components/ion-modle-g/ion-modle-g';
 //轮播页面
 import { IndexAdvPage } from '../pages/index-adv/index-adv';
-import { HomePage } from '../pages/home/home';
-import { CategoryPage } from '../pages/category/category';
-import { CartPage } from '../pages/cart/cart';
-import { UserPage } from '../pages/user/user';
+import { HomePageModule } from '../pages/home/home.module';
+import { CategoryPageModule } from '../pages/category/category.module';
+import { CartPageModule } from '../pages/cart/cart.module';
+import { UserPageModule } from '../pages/user/user.module';
 //登录
-import { LoginPage } from '../pages/login/login';
+import { LoginPageModule } from '../pages/login/login.module';
 //注册
-import { RegisterPage } from '../pages/register/register';
-import { RegistersignPage } from '../pages/registersign/registersign';
-import { RegisterpasswordPage } from '../pages/registerpassword/registerpassword';
+import { RegisterPageModule } from '../pages/register/register.module';
+import { RegistersignPageModule } from '../pages/registersign/registersign.module';
+import { RegisterpasswordPageModule } from '../pages/registerpassword/registerpassword.module';
 //搜索页面
-import { SearchPage } from '../pages/search/search';
+import { SearchPageModule } from '../pages/search/search.module';
 
 
 //商品列表
-import { ProductlistPage } from '../pages/productlist/productlist';
+import { ProductlistPageModule } from '../pages/productlist/productlist.module';
 
 //商品详情
-import { PcontentPage } from '../pages/pcontent/pcontent';
+import { PcontentPageModule } from '../pages/pcontent/pcontent.module';
 
 //账户管理
 
-import { PersonalPage } from '../pages/personal/personal';
+import { PersonalPageModule } from '../pages/personal/personal.module';
 
 //选择支付方式
-import { PaymentPage } from '../pages/payment/payment';
+import { PaymentPageModule } from '../pages/payment/payment.module';
 //设置页面
-import { SettingPage } from '../pages/setting/setting';
+import { SettingPageModule } from '../pages/setting/setting.module';
 
 //我的粉丝
 
-import { FansPage } from '../pages/fans/fans';
+import { FansPageModule } from '../pages/fans/fans.module';
 
-import { MywalletPage } from '../pages/mywallet/mywallet';
+import { MywalletPageModule } from '../pages/mywallet/mywallet.module';
 
 //粉丝详情
-import { FandetailPage } from '../pages/fandetail/fandetail';
+import { FandetailPageModule } from '../pages/fandetail/fandetail.module';
 
 //全部订单
-import { OrdersPage} from '../pages/orders/orders';
+import { OrdersPageModule} from '../pages/orders/orders.module';
 
-import { OrderPage} from '../pages/order/order';
+import { OrderPageModule} from '../pages/order/order.module';
 
-import { RechargePage } from '../pages/recharge/recharge';
+import { RechargePageModule } from '../pages/recharge/recharge.module';
 
-import { VippresentPage } from '../pages/vippresent/vippresent';
+import { VippresentPageModule } from '../pages/vippresent/vippresent.module';
 
-import { VippresentdetailPage } from '../pages/vippresentdetail/vippresentdetail';
-import { SetpaypasswordPage} from '../pages/setpaypassword/setpaypassword';
-import { UpdatepasswordPage} from '../pages/updatepassword/updatepassword';
-import { WithdrawPage} from '../pages/withdraw/withdraw';
-import { WithdrawaccountPage } from '../pages/withdrawaccount/withdrawaccount';
-import { AddaliacountPage } from '../pages/addaliacount/addaliacount';
-import { AddbankacountPage } from '../pages/addbankacount/addbankacount';
+import { VippresentdetailPageModule } from '../pages/vippresentdetail/vippresentdetail.module';
+import { SetpaypasswordPageModule} from '../pages/setpaypassword/setpaypassword.module';
+import { UpdatepasswordPageModule} from '../pages/updatepassword/updatepassword.module';
+import { WithdrawPageModule} from '../pages/withdraw/withdraw.module';
+import { WithdrawaccountPageModule } from '../pages/withdrawaccount/withdrawaccount.module';
+import { AddaliacountPageModule } from '../pages/addaliacount/addaliacount.module';
+import { AddbankacountPageModule } from '../pages/addbankacount/addbankacount.module';
 
 import { TabsPage } from '../pages/tabs/tabs';
 import { ConfigProvider } from '../providers/config/config';
@@ -92,7 +92,6 @@ import { RloginprocessProvider } from '../providers/rloginprocess/rloginprocess'
 // import { Alipay } from '@ionic-native/alipay';
 /**商品详情 */
 import {ProductDetailPageModule} from "../pages/product-detail/product-detail.module";
-import {ProductDetailPage} from "../pages/product-detail/product-detail";
 /**modal弹出框 */
 import { CarModalComponent } from "../components/car-modal/car-modal";
 // import { isPartMatch } from '../../node_modules/ionic-angular/umd/navigation/url-serializer';
@@ -102,41 +101,13 @@ import { AppshareProvider } from '../providers/appshare/appshare';
 @NgModule({
   declarations: [
     MyApp,
-    CategoryPage,
-    CartPage,
-    UserPage,
-    HomePage,
     TabsPage,
-    LoginPage,
-    RegisterPage,
-    RegistersignPage,
-    RegisterpasswordPage,
-    SearchPage,
-    ProductlistPage,
-    PcontentPage,
-    PersonalPage,
-    PaymentPage,
-    FansPage,
-    FandetailPage,
-    SettingPage,
     IndexAdvPage,
     IonModleAComponent,
     IonModleBComponent,
     IonModleCComponent,
     IonModleDComponent,
     IonModleGComponent,
-    MywalletPage,
-    RechargePage,
-    OrderPage,
-    OrdersPage,
-    VippresentPage,
-    VippresentdetailPage,
-    SetpaypasswordPage,
-    UpdatepasswordPage,
-    WithdrawPage,
-    WithdrawaccountPage,
-    AddaliacountPage,
-    AddbankacountPage,
     CarModalComponent,
     ShareComponent
   ],
@@ -144,6 +115,34 @@ import { AppshareProvider } from '../providers/appshare/appshare';
     BrowserModule,
     HttpModule, JsonpModule,
     ProductDetailPageModule,
+    HomePageModule,
+    CategoryPageModule,
+    CartPageModule,
+    UserPageModule,
+    LoginPageModule,
+    RegisterPageModule,
+    RegistersignPageModule,
+    RegisterpasswordPageModule,
+    SearchPageModule,
+    ProductlistPageModule,
+    PcontentPageModule,
+    PersonalPageModule,
+    PaymentPageModule,
+    SettingPageModule,
+    FansPageModule,
+    MywalletPageModule,
+    FandetailPageModule,
+    OrdersPageModule,
+    OrderPageModule,
+    RechargePageModule,
+    VippresentPageModule,
+    VippresentdetailPageModule,
+    SetpaypasswordPageModule,
+    UpdatepasswordPageModule,
+    WithdrawPageModule,
+    WithdrawaccountPageModule,
+    AddaliacountPageModule,
+    AddbankacountPageModule,
     IonicModule.forRoot(MyApp,{
       mode:'ios',
       tabsHideOnSubPages: 'true', //隐藏全部子页面 tabs
@@ -155,42 +154,13 @@ import { AppshareProvider } from '../providers/appshare/appshare';
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    CategoryPage,
-    CartPage,
-    UserPage,
-    HomePage,
     TabsPage,
-    LoginPage,
-    RegisterPage,
-    RegistersignPage,
-    RegisterpasswordPage,
-    SearchPage,
-    ProductlistPage,
-    PcontentPage,
-    PersonalPage,
-    PaymentPage,
-    FansPage,
-    FandetailPage,
-    SettingPage,
     IndexAdvPage,
     IonModleAComponent,
     IonModleBComponent,
     IonModleCComponent,
     IonModleDComponent,
     IonModleGComponent,
-    MywalletPage,
-    RechargePage,
-    OrdersPage,
-    OrderPage,
-    VippresentPage,
-    VippresentdetailPage,
-    SetpaypasswordPage,
-    UpdatepasswordPage,
-    WithdrawPage,
-    WithdrawaccountPage,
-    AddaliacountPage,
-    AddbankacountPage,
-    ProductDetailPage,
     CarModalComponent,
     ShareComponent
   ],
