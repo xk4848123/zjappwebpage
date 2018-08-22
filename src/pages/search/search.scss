@@ -1,6 +1,26 @@
  /*热搜*/
  page-search{
+     .tsearch{
+         div{
+             div{
+                top:11px !important;
+             }
+         }
+     }
+     .tsearch{
+         div{
+             input{
+                height: 3.5rem !important;
+             }
+         }
+     }
      /*列表*/
+     .tbutton{
+        input:focus::-webkit-input-placeholder { color:transparent; }
+        input:focus:-moz-placeholder { color:transparent; }
+        input:focus::-moz-placeholder { color:transparent; }
+        input:focus:-ms-input-placeholder { color:transparent; }
+      }
      .tlist{
          height: 10rem;
          img{
@@ -11,13 +31,6 @@
              margin: 0 0 3rem;
          }
      }
-     /*点击元素*/
-    //  .tcl{
-    //      border-bottom: 0.1rem solid red;
-    //      padding-bottom: 0.4rem;
-    //      position: relative;
-    //      bottom: 0.1rem;
-    //  }
      .tcl{
        color: red;     
      }
@@ -73,7 +86,7 @@
     height: 4rem;
     line-height: 4rem;
     position: fixed;
-    top:4.3rem;
+    top:5.3rem;
     width: 100%;
     border-bottom:1px solid #eee;
     display: flex;

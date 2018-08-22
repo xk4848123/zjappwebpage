@@ -8,7 +8,7 @@ page-index-adv {
         }
     }
     .iconDiv{
-        display: flow-root;
+        overflow: auto;
     }
     .icon{
         box-sizing: border-box;
@@ -18,7 +18,7 @@ page-index-adv {
         padding-top:0.454rem !important;
         list-style: none;
         p{
-            font-size: 0.521rem;
+            font-size: 1.321rem;
         }
         li{
             float: left;
