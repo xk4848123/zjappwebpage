@@ -5,8 +5,16 @@ ion-modle-a {
     .style1{
         background: url("../assets/imgs/title1.png") no-repeat center;
         background-size: contain;
-        margin-bottom: -0.5rem;
-        margin-top: -1rem;
+        // margin-bottom: -0.5rem;
+        // margin-top: -1rem;ß
+    }
+    .style2{
+        a{
+            overflow: auto;
+            img{
+                display: -webkit-box;
+            }
+        }
     }
     .fz-32{
         -webkit-background-clip: text;

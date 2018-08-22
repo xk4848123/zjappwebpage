@@ -2,8 +2,16 @@ ion-modle-b {
     .style1{
         background: url("../assets/imgs/title1.png") no-repeat center;
         background-size: contain;
-        margin-bottom: -0.5rem;
-        margin-top: -1rem;
+        // margin-bottom: -0.5rem;
+        // margin-top: -1rem;
+    }
+    .style2{
+        a{
+            overflow: auto;
+            img{
+                display: -webkit-box;
+            }
+        }
     }
     .fz-32{
         -webkit-background-clip: text;
@@ -19,16 +27,16 @@ ion-modle-b {
     }
     .module2{
         text-align: center;
-        display: flow-root;
+        overflow: auto;
         div:nth-child(2){
             div:last-child{
-                width: 49.3%;
+                width: 49.8%;
                 float: right;
                 margin: 0;
                 padding: 0;  
             }
             div:first-child{
-                width: 49.3%;
+                width: 49.8%;
                 float: left;
                 margin: 0;
                 padding: 0;  
