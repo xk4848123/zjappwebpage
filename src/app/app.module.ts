@@ -63,6 +63,9 @@ import { FandetailPage } from '../pages/fandetail/fandetail';
 //全部订单
 import { OrdersPage} from '../pages/orders/orders';
 
+//订单详情页
+import { OrderlistPage} from '../pages/orderlist/orderlist';
+//待付款
 
 import { RechargePage } from '../pages/recharge/recharge';
 
@@ -114,7 +117,8 @@ import { ToastProvider } from '../providers/toast/toast';
     MywalletPage,
     RechargePage,
     OrdersPage,
-    VippresentPage
+    VippresentPage,
+    OrderlistPage,
   ],
   imports: [
     BrowserModule,
@@ -122,7 +126,8 @@ import { ToastProvider } from '../providers/toast/toast';
     // IonicModule.forRoot(MyApp)
     IonicModule.forRoot(MyApp,{
       tabsHideOnSubPages: 'true', //隐藏全部子页面 tabs
-      backButtonText: '' /*配置返回按钮*/
+      backButtonText: '', /*配置返回按钮*/
+      
     })        
     
   ],
@@ -153,7 +158,8 @@ import { ToastProvider } from '../providers/toast/toast';
     MywalletPage,
     RechargePage,
     OrdersPage,
-    VippresentPage
+    VippresentPage,
+    OrderlistPage,
   ],
   providers: [  /*引入了自定义的服务*/
     StatusBar,

@@ -19,49 +19,58 @@
       <div class="col-demo" tabindex="1">全部</div>
     </div>
     <div class="col">
-      <div class="col-demo" tabindex="2">待付款</div>
+      <div class="col-demo" tabindex="2" (click)="pushpay()">待付款</div>
     </div>
     <div class="col">
-      <div class="col-demo" tabindex="3">待发货</div>
+      <div class="col-demo" tabindex="3"(click)="receiving()">待发货</div>
     </div>
     <div class="col">
-      <div class="col-demo" tabindex="3">待收货</div>
+      <div class="col-demo" tabindex="3"(click)="shipments">待收货</div>
     </div>
     <div class="col">
-      <div class="col-demo" tabindex="3">待评价</div>
+      <div class="col-demo" tabindex="3"(click)="evaluated()">待评价</div>
     </div>
   </div>
+  <div *ngFor="let item of temp">
   <div class="transition">
   </div>
   <div class="interval">
-   2018-07-13 17:54:49 <a href="#" style="float:right;text-decoration: none;">交易取消</a>
+   {{item.createtime}} <a href="#" style="float:right;text-decoration: none;">
+     <span *ngIf="item.curstatus == -2">交易取消</span>
+     <span *ngIf="item.curstatus == -1">待付款</span>
+     <span *ngIf="item.curstatus == 0">待发货</span>
+     <span *ngIf="item.curstatus == 1">待收货</span>
+     <span *ngIf="item.curstatus == 2">待评价</span>
+  </a>
   </div>
   <ion-grid style="padding: 0;width: 100%;">
-    <ion-row class="col_row">
-      <ion-col class="col_2" style="width: 20%;">
-        <img src="assets/imgs/07.jpg" />   <div class="hp"><span>京东惠普   Windows7      <br /><p style="float:right;">4580.0</p></span></div>
-        <br /><br /><span class="hp" style="float:right">×1</span>
+    <ion-row class="col_row" *ngFor="let item1 of item.orderlines" (click)="pushdetail(item)">
+      <ion-col class="col_2" style="width: 100%" >
+        <img [src]="config.domain+item1.photo" />   <div class="hp"><span>{{item1.productname}}       <br /><p style="float:right;">{{item1.price}}</p></span></div>
+        <br /><br /><span class="hp" style="float:right">×{{item1.productnum}}</span>
       </ion-col>
-    </ion-row>
+      </ion-row>
   </ion-grid>
   <div class="interval">
-    <div class="count">共一件商品      合计：￥4580.0</div>
+    <div class="count">共{{item.tolnum}}件商品      合计：￥{{item.totalamount}}元</div>
    </div>
-   <!-- 第二栏 -->
-   <div class="transition">
-  </div>
-  <div class="interval">
-   2018-07-13 17:54:49 <a href="#" style="float:right;text-decoration: none;">交易取消</a>
-  </div>
-  <ion-grid style="padding: 0;width: 100%;">
-    <ion-row class="col_row">
-      <ion-col class="col_2" style="width: 20%;">
-        <img src="assets/imgs/09.jpg" />   <div class="hp"><span>京东惠普   Windows7    <br /> <p style="float:right">4580.0</p></span></div>
-        <br /><br  /><span class="hp" style="float:right">×1</span>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
-  <div class="interval">
-    <div class="count">共一件商品      合计：￥4580.0</div>
    </div>
+   <!-- 下拉刷新 -->
+   <ion-refresher (ionRefresh)="doRefresh($event)"> 
+      <ion-refresher-content
+          pullingIcon="arrow-dropdown"
+          pullingText="下拉刷新"
+          refreshingSpinner="circles"
+          refreshingText="刷新..."> 
+       </ion-refresher-content>
+      <ion-refresher-content > 
+  </ion-refresher-content>
+  </ion-refresher>
+   <!--下滑的时候，加载数据-->
+   <ion-infinite-scroll (ionInfinite)="doInfinite($event)"> 
+      <ion-infinite-scroll-content
+       loadingSpinner="bubbles"
+       loadingText="加载中..."> 
+       </ion-infinite-scroll-content> 
+   </ion-infinite-scroll>
 </ion-content>
