@@ -1,9 +1,13 @@
 import { NgModule } from '@angular/core';
+
 @NgModule({
-	declarations: [
+	declarations: [	
     ],
-	imports: [],
+	imports: [
+		
+	],
 	exports: [
+		
     ]
 })
 export class ComponentsModule {}

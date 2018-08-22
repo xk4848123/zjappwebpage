@@ -6,7 +6,7 @@ import { HttpServicesProvider } from '../../providers/http-services/http-service
 import { ConfigProvider } from '../../providers/config/config';
 import { AlertProvider } from '../../providers/alert/alert';
 import { DomSanitizer } from '@angular/platform-browser';/*转译html标签*/
-import { CartPage } from '../cart/cart';
+// import { CartPage } from '../cart/cart';
 import { CarModalComponent } from '../../components/car-modal/car-modal';
 import { ShareComponent } from '../../components/share/share';
 @IonicPage()
@@ -80,8 +80,7 @@ export class ProductDetailPage {
   }
   /**跳转购物车 */
   goShop(){
-    // this.navCtrl.push('CartPage');
-    this.app.getRootNav().push(CartPage);
+    this.navCtrl.push('CartPage');
   }
   /**加入购物车 */
   joinShop(){

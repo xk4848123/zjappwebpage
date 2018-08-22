@@ -18,7 +18,7 @@ import{ IonModleDComponent} from './../components/ion-modle-d/ion-modle-d';
 import { IonModleGComponent} from './../components/ion-modle-g/ion-modle-g';
 //轮播页面
 import { IndexAdvPage } from '../pages/index-adv/index-adv';
-import { HomePageModule } from '../pages/home/home.module';
+import { HomePage } from '../pages/home/home';
 import { CategoryPageModule } from '../pages/category/category.module';
 import { CartPageModule } from '../pages/cart/cart.module';
 import { UserPageModule } from '../pages/user/user.module';
@@ -93,11 +93,12 @@ import { RloginprocessProvider } from '../providers/rloginprocess/rloginprocess'
 /**商品详情 */
 import {ProductDetailPageModule} from "../pages/product-detail/product-detail.module";
 /**modal弹出框 */
-import { CarModalComponent } from "../components/car-modal/car-modal";
 // import { isPartMatch } from '../../node_modules/ionic-angular/umd/navigation/url-serializer';
 /**分享 */
 import { ShareComponent } from '../components/share/share';
 import { AppshareProvider } from '../providers/appshare/appshare';
+//组件
+import { CarModalComponent } from '../components/car-modal/car-modal'; 
 @NgModule({
   declarations: [
     MyApp,
@@ -109,13 +110,13 @@ import { AppshareProvider } from '../providers/appshare/appshare';
     IonModleDComponent,
     IonModleGComponent,
     CarModalComponent,
-    ShareComponent
+    ShareComponent,
+    HomePage
   ],
   imports: [
     BrowserModule,
     HttpModule, JsonpModule,
     ProductDetailPageModule,
-    HomePageModule,
     CategoryPageModule,
     CartPageModule,
     UserPageModule,
@@ -162,7 +163,9 @@ import { AppshareProvider } from '../providers/appshare/appshare';
     IonModleDComponent,
     IonModleGComponent,
     CarModalComponent,
-    ShareComponent
+    ShareComponent,
+    HomePage
+    
   ],
   providers: [  /*引入了自定义的服务*/
     StatusBar,

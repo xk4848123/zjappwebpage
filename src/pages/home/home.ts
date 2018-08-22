@@ -1,12 +1,10 @@
 import { Component,ViewChild, NgZone } from '@angular/core';
-import { NavController,Content, IonicPage } from 'ionic-angular';
+import { NavController,Content } from 'ionic-angular';
 import { ConfigProvider } from '../../providers/config/config';
 
 import { HttpServicesProvider } from '../../providers/http-services/http-services';
 import {Jsonp} from "@angular/http";
 
-
-@IonicPage()
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
