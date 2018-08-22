@@ -1,6 +1,4 @@
 import { Injectable } from '@angular/core';
-import { Http } from '@angular/http';
-import 'rxjs/add/operator/map';
 
 /*
   Generated class for the StorageProvider provider.
@@ -11,9 +9,6 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class StorageProvider {
 
-  constructor(public http: Http) {
-    console.log('Hello StorageProvider Provider');
-  }
   //localStorage
 
   set(key,value){
@@ -27,6 +22,23 @@ export class StorageProvider {
   remove(key){
 
     localStorage.removeItem(key);
+  }
+
+  setSessionStorage(key,value){
+
+    sessionStorage.setItem(key,JSON.stringify(value));  /*对象转换成字符串*/
+
+  }
+
+  getSessionStorage(key){
+
+    return JSON.parse(sessionStorage.getItem(key));   /*字符串转换成对象*/
+
+  }
+  removeSessionStorage(key){
+
+    sessionStorage.removeItem(key);
+    
   }
 
 }

@@ -17,12 +17,12 @@
   
   
   <div class="card-div">
-    <div class="card-line">
+    <div class="card-line" [navPush]='SetpaypasswordPage'>
         <span class="head-span">设置支付密码</span>
         <ion-icon class="arrows" name="ios-arrow-forward"></ion-icon>
       </div>
       <div class="line-div"></div>
-      <div class="card-line">
+      <div class="card-line" [navPush]='UpdatepasswordPage'>
           <span class="head-span">修改密码</span>
           <ion-icon class="arrows" name="ios-arrow-forward"></ion-icon>
       </div>
@@ -32,7 +32,7 @@
             <ion-icon class="arrows" name="ios-arrow-forward"></ion-icon>
       </div>
       <div class="line-div"></div>
-      <div class="card-line" (tap)="test()">
+      <div class="card-line" (tap)="aboutUs()">
             <span class="head-span">关于我们</span>
             <ion-icon class="arrows" name="ios-arrow-forward"></ion-icon>
       </div>

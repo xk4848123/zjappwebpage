@@ -36,7 +36,7 @@ page-user {
         border-right: 0.1rem solid #ddd;
         text-align: center;
         font-size: 1.4rem;
-        color: #8e9093;
+        color: #666666;
       }
       .col_1 span{
         color: black; 
@@ -48,7 +48,7 @@ page-user {
         border-bottom: 0.1rem solid #ddd;
         text-align: center;
         font-size: 1.2rem;
-        color: #8e9093;
+        color: #666666;
       }
      
       .col_3{
@@ -57,7 +57,7 @@ page-user {
         border-top: 0.1rem solid #ddd;
         text-align: center;
         font-size: 1.2rem;
-        color: #8e9093;
+        color: #666666;
       }
       .col_4{
         background-color: #ffffff;
@@ -65,7 +65,7 @@ page-user {
         border-top: 0.1rem solid #ddd;
         text-align: center;
         font-size: 1.2rem;
-        color: #8e9093;
+        color: #666666;
       }
       .interval{
         height: 4rem;
@@ -74,7 +74,6 @@ page-user {
         line-height: 4rem;
         font-size: 1.6rem;
       }
-    
       ion-grid span{
         width:100%;
         word-break:keep-all;             /* 不换行 */
@@ -110,7 +109,7 @@ page-user {
       }
       .person{
         height: 12rem;
-    
+        background:url('../assets/imgs/usercenter.png');
       }
       .headimg{
           height: 6rem;
@@ -126,5 +125,8 @@ page-user {
           border-radius: 50%;
           display: none;
     
+      }
+      ion-list p {
+          color: black !important;
       }
 }

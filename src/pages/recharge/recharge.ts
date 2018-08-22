@@ -1,6 +1,5 @@
 import { Component, Renderer2, ElementRef } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { PaymentPage } from '../payment/payment';
 
 /**
  * Generated class for the RechargePage page.
@@ -54,7 +53,7 @@ export class RechargePage {
     }
   }
   pay() {
-    this.navCtrl.push(PaymentPage, {
+    this.navCtrl.push('PaymentPage', {
       money: this.money
     });
   }

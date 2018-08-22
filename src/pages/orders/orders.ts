@@ -3,14 +3,10 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 //订单详情页
 import { OrderlistPage} from '../orderlist/orderlist';
 
-//待付款
-import { PayPage} from '../pay/pay';
-//待发货
 // import { ReceivingPage} from '../receiving/receiving';
 // //待收货
 // import { ShipmentsPage} from '../shipments/shipments';
 //待评价
-import { EvaluatedPage} from '../evaluated/evaluated';
 
 import { StorageProvider } from '../../providers/storage/storage';
 
@@ -51,15 +47,9 @@ public datas='';
   //从订单页面到订单详情页
   pushdetail(item){
     //console.log('订单详情页');
-    this.navCtrl.push(OrderlistPage,
+    this.navCtrl.push('OrderlistPage',
     {item:item['id']});
   }
-  //待付款
-  pushpay(){
-    console.log('待支付');
-    this.navCtrl.push(PayPage);
-  }
-  待发货
   // receiving(){
   //   this.navCtrl.push(ReceivingPage);
   // }
@@ -68,9 +58,6 @@ public datas='';
   //   this.navCtrl.push(ShipmentsPage);
   // }
   //待评价
-  evaluated(){
-    this.navCtrl.push(EvaluatedPage);
-  }
   //下拉刷新界面
   doRefresh(refresher){
     console.log('下拉刷新');

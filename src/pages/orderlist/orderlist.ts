@@ -17,6 +17,7 @@ import { ConfigProvider } from '../../providers/config/config';
  * Ionic pages and navigation.
  */
 
+@IonicPage()
 @Component({
   selector: 'page-orderlist',
   templateUrl: 'orderlist.html',

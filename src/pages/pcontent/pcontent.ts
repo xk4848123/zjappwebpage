@@ -6,8 +6,6 @@ import { ConfigProvider } from '../../providers/config/config';
 import { HttpServicesProvider } from '../../providers/http-services/http-services';
 
 import { StorageProvider } from '../../providers/storage/storage';
-//购物车页面
-import { CartPage } from '../cart/cart';
 
 /**
  * Generated class for the PcontentPage page.
@@ -27,7 +25,7 @@ export class PcontentPage {
 
   @ViewChild('myattr') myattr:ElementRef;
 
-  public CartPage=CartPage;
+  public CartPage='CartPage';
 
   public tabs='plist';  /*商品列表选中*/
 
@@ -139,11 +137,10 @@ export class PcontentPage {
       if(this.hasData(storageData,json.product_id)){  /*购物车有数据*/
 
           //修改刚才购物车里面的数量
-          
-          for(var i=0;i<storageData.length;i++){
+          for(var j=0;j<storageData.length;j++){
             
-            if(storageData[i].product_id==product_id){
-               storageData[i].product_count+=json.product_count;  /*以前的数量加上选择的数量*/
+            if(storageData[j].product_id==product_id){
+               storageData[j].product_count+=json.product_count;  /*以前的数量加上选择的数量*/
             }
           }
           

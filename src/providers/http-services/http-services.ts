@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 
-import { Http, Jsonp, Headers, RequestOptions } from "@angular/http";
+import { Http, Jsonp, Headers} from "@angular/http";
 
 import 'rxjs/add/operator/map';
 
@@ -50,7 +50,6 @@ export class HttpServicesProvider {
       err => {
         this.noticeSer.showToast('服务器异常');
       });
-
   }
 
   doFormPost(apiUrl, json, callback) {

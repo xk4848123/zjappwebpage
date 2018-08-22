@@ -1,21 +1,5 @@
 import { Component, Renderer2, ElementRef } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { LoginPage } from '../login/login';
-
-import { RegisterPage } from '../register/register';
-//我的粉丝
-import { FansPage } from '../fans/fans';
-//全部订单
-import { OrdersPage } from '../orders/orders';
-//钱包页面
-import { MywalletPage } from '../mywallet/mywallet';
-
-//二赠一界面
-import { VippresentPage } from '../vippresent/vippresent';
-//引入账户设置页面
-
-import { PersonalPage } from '../personal/personal';
-import { SettingPage } from '../setting/setting';
 
 import { StorageProvider } from '../../providers/storage/storage';
 
@@ -42,13 +26,13 @@ import { ToastProvider } from '../../providers/toast/toast';
 })
 export class UserPage {
 
-  public LoginPage = LoginPage;
+  public LoginPage = 'LoginPage';
 
-  public RegisterPage = RegisterPage;
+  public RegisterPage = 'RegisterPage';
 
-  public PersonalPage = PersonalPage;
+  public PersonalPage = 'PersonalPage';
 
-  public SettingPage = SettingPage;
+  public SettingPage = 'SettingPage';
 
   public userInfo = '';
 
@@ -99,18 +83,18 @@ export class UserPage {
   console.log(moduleName);
    if(this.userInfo){//登录以后才能获取进入子模块
     if(moduleName == 'fans'){
-      this.navCtrl.push(FansPage);
+      this.navCtrl.push('FansPage');
     }
     if(moduleName == 'mywallet'){
-      this.navCtrl.push(MywalletPage);
+      this.navCtrl.push('MywalletPage');
     }
     if(moduleName == 'allorders'){
-      this.navCtrl.push(OrdersPage,{
+      this.navCtrl.push('OrdersPage',{
         type:'all'
       });
     }
     if(moduleName == 'vippresent'){
-      this.navCtrl.push(VippresentPage);
+      this.navCtrl.push('VippresentPage');
     }
     //特殊的申请代理
     if(moduleName == 'proxyApply'){
@@ -130,7 +114,7 @@ export class UserPage {
       {
         text: '登录',
         handler: () => {
-          this.navCtrl.push(LoginPage);
+          this.navCtrl.push('LoginPage');
         }
       }
     ]);
@@ -230,7 +214,7 @@ export class UserPage {
               {
                 text: '登录',
                 handler: () => {
-                  this.navCtrl.push(LoginPage);
+                  this.navCtrl.push('LoginPage');
                 }
               }
             ]);

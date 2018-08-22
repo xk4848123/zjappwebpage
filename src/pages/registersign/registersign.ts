@@ -1,11 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
-import { RegisterpasswordPage } from '../registerpassword/registerpassword';
-
 import { HttpServicesProvider } from '../../providers/http-services/http-services';
-
-
 import { StorageProvider } from '../../providers/storage/storage';
 
 
@@ -47,7 +42,7 @@ export class RegistersignPage {
           this.storage.set('reg_code',this.code);
 
           //跳转到下一个页面
-          this.navCtrl.push(RegisterpasswordPage);
+          this.navCtrl.push('RegisterpasswordPage');
         }else{
           alert('验证码输入错误');
         }

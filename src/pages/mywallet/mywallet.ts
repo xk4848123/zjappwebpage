@@ -1,6 +1,5 @@
 import { Component,Renderer2, ElementRef } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { RechargePage } from '../recharge/recharge';
 /**
  * Generated class for the MywalletPage page.
  *
@@ -15,7 +14,8 @@ import { RechargePage } from '../recharge/recharge';
 })
 export class MywalletPage {
 
-  public RechargePage = RechargePage;
+  public RechargePage = 'RechargePage';
+  public WithdrawPage = 'WithdrawPage';
 
   constructor(public navCtrl: NavController, public navParams: NavParams,private el: ElementRef,
     private renderer2: Renderer2) {
@@ -84,7 +84,11 @@ export class MywalletPage {
   this.renderer2.setStyle(treasureImgDivArrays[1],'left',treasureImgTwoLeft +'px');
   this.renderer2.setStyle(treasureImgDivArrays[2],'left',treasureImgThreeLeft +'px');
   this.renderer2.setStyle(treasureImgDivArrays[3],'left',treasureImgFourLeft +'px');
-  
+  // 自动拓展
+  let mygoldDiv = this.el.nativeElement.querySelector('.mygold');
+  let goldOriginalHeight = mygoldDiv.offsetHeight;
+  let expandHeight = goldOriginalHeight + 66 + 'px';
+  this.renderer2.setStyle(mygoldDiv,'height',expandHeight);
 }
 
 }

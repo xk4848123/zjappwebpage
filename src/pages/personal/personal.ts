@@ -1,8 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
-import { UserPage } from '../user/user';
-
 import { StorageProvider } from '../../providers/storage/storage';
 
 import { ToastProvider } from '../../providers/toast/toast';
@@ -12,7 +10,7 @@ import { ImgProvider } from '../../providers/img/img';
 import { ConfigProvider } from '../../providers/config/config';
 
 import { HttpServicesProvider } from '../../providers/http-services/http-services';
-
+import { RloginprocessProvider } from '../../providers/rloginprocess/rloginprocess'
 
 @IonicPage()
 @Component({
@@ -31,7 +29,7 @@ export class PersonalPage {
   public test = '';
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public storage: StorageProvider, private noticeSer: ToastProvider,
-    private imgSer: ImgProvider, private config: ConfigProvider, public httpService: HttpServicesProvider) {
+    private imgSer: ImgProvider, private config: ConfigProvider, public httpService: HttpServicesProvider,private rlogin:RloginprocessProvider) {
   }
 
   ionViewDidLoad() {
@@ -71,8 +69,7 @@ export class PersonalPage {
           this.userInfo.beInviteCode = tempData['personDataMap'].BeInviteCode;
           this.userInfo.headPhoto = tempData['personDataMap'].HeadPhoto;
         } else if (data.error_code == 3) {//token过期
-          this.noticeSer.showToast('该账号在其他设备上登录了');
-          this.navCtrl.push(UserPage);
+          this.rlogin.rLoginProcessWithHistory(this.navCtrl);
         }
         else {
           this.noticeSer.showToast('数据获取异常：' + data.error_message);
@@ -88,7 +85,9 @@ export class PersonalPage {
     }, (res) => {
       if (res.error_code == 0) {
         this.noticeSer.showToast('更新头像成功');
-      } else {
+      } else if (res.error_code == 3) {//token过期
+        this.rlogin.rLoginProcess(this.navCtrl);
+      }else {
         this.noticeSer.showToast('错误：上传失败！' + res.error_message);
       }
     });
