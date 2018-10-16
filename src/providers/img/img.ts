@@ -88,25 +88,6 @@ export class ImgProvider {
         });
         actionSheet.present();
     }
-
-    // 使用原生的ActionSheet组件
-    /*private useNativeAS() {
-    let buttonLabels = ['拍照', '从手机相册选择'];
-    ActionSheet.show({
-    'title': '选择',
-    'buttonLabels': buttonLabels,
-    'addCancelButtonWithLabel': 'Cancel',
-    //'addDestructiveButtonWithLabel' : 'Delete'
-    }).then((buttonIndex: number) => {
-    if(buttonIndex == 1) {
-    this.startCamera();
-    } else if(buttonIndex == 2) {
-    this.openImgPicker();
-    }
-    });
-    }*/
-
-
     // 启动拍照功能
     private startCamera() {
         this.camera.getPicture(this.cameraOpt).then((imageData) => {

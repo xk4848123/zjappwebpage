@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 // import { HttpClient } from '@angular/common/http';
-import { ViewController } from 'ionic-angular';
+import { ViewController,NavParams } from 'ionic-angular';
 import { AppshareProvider } from '../../providers/appshare/appshare';
 import { AlertProvider } from '../../providers/alert/alert';
 /**
@@ -15,11 +15,17 @@ import { AlertProvider } from '../../providers/alert/alert';
 })
 export class ShareComponent {
 
-  text: string;
+  param: {
+    title: string,
+    description: string,
+    link: string,
+    image: string,
+  };
 
-  constructor(public viewCrl:ViewController,public appshare :AppshareProvider,public alert:AlertProvider) {
-    console.log('Hello ShareComponent Component');
-    this.text = 'Hello World';
+  constructor(public viewCrl:ViewController,public navParams: NavParams,public appshare :AppshareProvider,public alert:AlertProvider) {
+    if (this.navParams.get('param')) {
+      this.param = this.navParams.get('param');
+    }
   }
   dimiss(){
     this.viewCrl.dismiss();
@@ -27,15 +33,9 @@ export class ShareComponent {
   /**分享 */
   share(num){
     if(num==1){
-      this.appshare.wxShare(0);
+      this.appshare.wxShare(0,this.param.image,this.param.description,this.param.title,this.param.link);
     }else if(num==2){
-      this.appshare.wxShare(1);
-    }else if(num==3){
-      this.appshare.wxShare(2);
-    }else if(num==4){
-      this.appshare.qqShare(0);
-    }else if(num==5){
-      this.appshare.qqShare(1);
+      this.appshare.wxShare(1,this.param.image,this.param.description,this.param.title,this.param.link);
     }else{
       this.alert.showAlert('系统异常','',['ok']);
     }

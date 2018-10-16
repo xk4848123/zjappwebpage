@@ -3,16 +3,22 @@
     <ion-searchbar (tap)="goSearch()"></ion-searchbar>
   </ion-navbar>
 </ion-header> -->
-
-
 <ion-content>
+    <ion-refresher (ionRefresh)="doRefresh($event)"> 
+        <ion-refresher-content
+          pullingIcon="arrow-dropdown"
+          pullingText="下拉刷新"
+          refreshingSpinner="circles"
+          refreshingText="刷新..."> 
+        </ion-refresher-content>
+      </ion-refresher>
     <div class="tc" [ngClass]="{'tcRed':isRed}" #search>
       <div>
         <ion-searchbar class="tsearch" (tap)="goSearch()"></ion-searchbar>
       </div>
-      <div class="message">
+      <!-- <div class="message">
         <a><img src="assets/icon/message.png"></a>
-      </div>
+      </div> -->
     </div>
     <page-index-adv></page-index-adv>
     <div class="dis">

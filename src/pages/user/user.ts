@@ -1,5 +1,5 @@
 import { Component, Renderer2, ElementRef } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams } from 'ionic-angular';
 
 import { StorageProvider } from '../../providers/storage/storage';
 
@@ -12,6 +12,9 @@ import { ClearloginProvider } from '../../providers/clearlogin/clearlogin';
 import { ConfigProvider } from '../../providers/config/config';
 
 import { ToastProvider } from '../../providers/toast/toast';
+import { WeblinkProvider } from '../../providers/weblink/weblink';
+
+
 /**
  * Generated class for the UserPage page.
  *
@@ -19,7 +22,6 @@ import { ToastProvider } from '../../providers/toast/toast';
  * Ionic pages and navigation.
  */
 
-@IonicPage()
 @Component({
   selector: 'page-user',
   templateUrl: 'user.html',
@@ -49,19 +51,14 @@ export class UserPage {
   public isAuth: boolean=false;//是否实名认证通过
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public config: ConfigProvider, public storage: StorageProvider, public httpService: HttpServicesProvider, public alertProvider: AlertProvider, private el: ElementRef,
-    private renderer2: Renderer2, public clearlogin: ClearloginProvider,private noticeSer: ToastProvider) {
+    private renderer2: Renderer2, public clearlogin: ClearloginProvider,private noticeSer: ToastProvider,private webLink:WeblinkProvider) {
     //延迟清理第一次加载标记以确保不重复获取用户数据
     setTimeout(() => {
       this.isFirst = false;
     }, 1000);
     this.refreshUser();
   }
-  ionViewDidLoad() {
-    // console.log("1.0 ionViewDidLoad 当页面加载的时候触发，仅在页面创建的  时候触发一次，如果被缓存了，那么下次再打开这个页面则不会触发");
-    setTimeout(() => {
-      this.setDot();
-    }, 100);
-  }
+
   ionViewWillEnter() {
     if (!this.isFirst) {
       this.refreshUser();
@@ -80,7 +77,6 @@ export class UserPage {
 
   //进入各个子模块的入口
   mainEntrance(moduleName){
-  console.log(moduleName);
    if(this.userInfo){//登录以后才能获取进入子模块
     if(moduleName == 'fans'){
       this.navCtrl.push('FansPage');
@@ -92,14 +88,65 @@ export class UserPage {
       this.navCtrl.push('OrdersPage',{
         type:'all'
       });
+    }else if(moduleName == 'pay'){
+      this.navCtrl.push('OrdersPage',{
+        type:'wp'
+      });
+    }else if(moduleName == 'setGoods'){
+      this.navCtrl.push('OrdersPage',{
+        type:'ws'
+      });
+    }else if(moduleName == 'receiving'){
+      this.navCtrl.push('OrdersPage',{
+        type:'wr'
+      });
+    }else if(moduleName == 'remain'){
+      this.navCtrl.push('OrdersPage',{
+        type:'wc'
+      });
+    }
+    if(moduleName == 'wporders'){
+      this.navCtrl.push('OrdersPage',{
+        type:'wp'
+      });
+    }
+    if(moduleName == 'wsorders'){
+      this.navCtrl.push('OrdersPage',{
+        type:'ws'
+      });
+    }
+    if(moduleName == 'wrorders'){
+      this.navCtrl.push('OrdersPage',{
+        type:'wr'
+      });
+    }
+    if(moduleName == 'wcorders'){
+      this.navCtrl.push('OrdersPage',{
+        type:'wc'
+      });
     }
     if(moduleName == 'vippresent'){
       this.navCtrl.push('VippresentPage');
     }
+    if(moduleName == 'callcenter'){
+      this.navCtrl.push('CallcenterPage');
+    }
+    if(moduleName == 'certification'){
+      this.navCtrl.push('CertificationPage');
+    }
+    if(moduleName == "qrcode"){
+      this.navCtrl.push("QrcodePage");
+    }
+    if(moduleName == "waterpurifier"){
+      this.webLink.goWeb(this.config.domain + "/html/waterPurifier.html?token=" + this.storage.get('token'));
+    }
+    if(moduleName == "mycourse"){
+      this.noticeSer.showToast('您还未有课程');
+    }
     //特殊的申请代理
     if(moduleName == 'proxyApply'){
       if(this.userInfo['personDataMap'].Lev==3 || (this.userInfo['personDataMap'].Lev==2 && this.userInfo['personDataMap'].IsSubProxy == 1)){
-        console.log('进入申请代理页面');
+        this.navCtrl.push('ProxyapplyPage');
       }else{
         this.alertProvider.showAlert('您还不是代理哦', '', ['ok']);
       }
@@ -191,7 +238,6 @@ export class UserPage {
             this.canAgentApply = false;
             this.isAgentApply = true;
           }
-          console.log(this.isAgentApply);
           //实名认证栏目设置
           if(this.userInfo['isAlreadyAuth']){
             this.isAuth=true;
@@ -237,23 +283,12 @@ export class UserPage {
       this.canAgentApply = false;
     }
   }
-  // ionViewDidLeave(){
-  //     console.log("5.0 ionViewDidLeave 离开页面时触发");
-  // }
-  // ionViewWillUnload(){
-  //    console.log("6.0 ionViewWillUnload 当页面将要销毁同时页面上元素移除   时触发");
-
-
-  // }
-  // ionViewCanEnter(){
-  //    console.log("ionViewCanEnter");
-  // }
-  // ionViewCanLeave(){
-  //      console.log("ionViewCanLeave");
-  // }
+  register(){
+    this.navCtrl.push('LoginPage',{type:2});
+  }
 doRefresh($event){
   this.refreshUser();
-
+  this.setDot();
   setTimeout(() => { 
      $event.complete();
       this.noticeSer.showToast('加载成功');

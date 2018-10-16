@@ -13,7 +13,7 @@
 </ion-header>
 
 
-<ion-content style="background: #eeeeee;z-index: 2;">
+<ion-content style="background: #eeeeee;">
     <div id="content">
     <ion-list>
         <ion-item>
@@ -39,6 +39,10 @@
     </div>
       <div id="hidebg" (tap)="closeSelect()"></div>
       <div class="card-div">
+        <div class="card-line-first">
+          请选择银行
+        </div>
+        <div class="line-div"></div>
           <div [innerHTML]="assembleHTML(strHTML)"></div>
           </div>
 </ion-content>

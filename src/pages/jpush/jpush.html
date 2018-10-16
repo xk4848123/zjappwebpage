@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      JPush Ionic Example
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+  <ion-list>
+    <ion-item>
+      <div>Registration Id: {{registrationId}}</div>
+      <button ion-button full (tap)="getRegistrationID()">Get Registration Id</button>
+    </ion-item>
+
+    <ion-item>
+      <button ion-button full (tap)="setTags()">Set tags - Tag1, Tag2</button>
+      <button ion-button full (tap)="addTags()">Add tags - Tag3, Tag4</button>
+      <button ion-button full (tap)="checkTagBindState()">Check tag bind state - Tag1</button>
+      <button ion-button full (tap)="deleteTags()">Delete tags - Tag4</button>
+      <button ion-button full (tap)="getAllTags()">Get all tags</button>
+      <button ion-button full (tap)="cleanTags()">Clean tags</button>
+    </ion-item>
+
+    <ion-item>
+      <button ion-button full (tap)="setAlias()">Set Alias - TestAlias</button>
+      <button ion-button full (tap)="getAlias()">Get Alias</button>
+      <button ion-button full (tap)="deleteAlias()">Delete Alias</button>
+    </ion-item>
+
+    <ion-item>
+      <button ion-button full (tap)="addLocalNotification()">Trigger local notification after 5 seconds</button>
+    </ion-item>
+  </ion-list>
+</ion-content>

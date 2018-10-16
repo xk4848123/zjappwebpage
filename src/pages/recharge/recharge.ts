@@ -1,6 +1,10 @@
 import { Component, Renderer2, ElementRef } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
+import { StorageProvider } from '../../providers/storage/storage';
+import { HttpServicesProvider } from '../../providers/http-services/http-services';
+import { RloginprocessProvider } from '../../providers/rloginprocess/rloginprocess';
+import { ToastProvider } from '../../providers/toast/toast';
+import { WeblinkProvider } from '../../providers/weblink/weblink';
 /**
  * Generated class for the RechargePage page.
  *
@@ -19,7 +23,8 @@ export class RechargePage {
 
   public num: number = 0;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private renderer2: Renderer2, private el: ElementRef) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private renderer2: Renderer2, private noticeSer: ToastProvider,
+    private el: ElementRef, private storage: StorageProvider, private httpService: HttpServicesProvider, private rloginprocess: RloginprocessProvider,private webLink:WeblinkProvider) {
   }
 
   ionViewWillEnter() {
@@ -40,7 +45,7 @@ export class RechargePage {
           this.renderer2.setStyle(children[j], 'box-shadow', '0 0.1rem 0.1rem #888888');
         }
       }
-      this.renderer2.setStyle(moneyDiv, 'border', '1px solid red');
+      this.renderer2.setStyle(moneyDiv, 'border', '1px solid #f53d3d');
       this.renderer2.setStyle(moneyDiv, 'box-shadow', '0 0');
     }
   }
@@ -53,9 +58,23 @@ export class RechargePage {
     }
   }
   pay() {
-    this.navCtrl.push('PaymentPage', {
-      money: this.money
-    });
+    let token = this.storage.get('token');
+    if (token) {
+      let apiUrl = "v2/MemberShip/createCOrderV2/" + token;
+      this.httpService.doFormPost(apiUrl, { money: this.money }, (data) => {
+        if (data.error_code == 0) {//请求成功
+          let tempData = data.data;
+          this.webLink.wxGoWebPay(this.navCtrl,tempData.orderNo,tempData.realpay,tempData.orderType);
+        } else if (data.error_code == 3) {
+          this.rloginprocess.rLoginProcessWithHistory(this.navCtrl);
+        } else {
+          this.noticeSer.showToast(data.error_message);
+        }
+      });
+   
+    }
+
+
   }
 
 }

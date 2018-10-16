@@ -19,20 +19,22 @@ import { RloginprocessProvider } from '../../providers/rloginprocess/rloginproce
   templateUrl: 'vippresentdetail.html',
 })
 export class VippresentdetailPage {
-s
-  constructor(public navCtrl: NavController, public navParams: NavParams, private httpService: HttpServicesProvider,
-    private storage: StorageProvider, private noticeSer: ToastProvider, private config: ConfigProvider,private rlogin:RloginprocessProvider ) {
-  }
-  public obj:object=null;
-  public sysid:number=null;
 
-  searchBySysId(){
+  constructor(public navCtrl: NavController, public navParams: NavParams, private httpService: HttpServicesProvider,
+    private storage: StorageProvider, private noticeSer: ToastProvider, private config: ConfigProvider, private rlogin: RloginprocessProvider) {
+      this.callback = this.navParams.get('callback');
+  }
+  public obj: object = null;
+  public sysid: number = null;
+  callback: any;
+
+  searchBySysId() {
     let token = this.storage.get('token');
     let api = "v1/MemberShip/getMemberBySysId/" + token;
     this.httpService.requestData(api, (res) => {
       if (res.error_code == 0) {
         this.obj = res.data;
-        this.obj['UserName']= this.hidePhoneNum(this.obj['UserName']);
+        this.obj['UserName'] = this.hidePhoneNum(this.obj['UserName']);
       } else if (res.error_code == 3) {
         //抢登处理
         this.rlogin.rLoginProcess(this.navCtrl);
@@ -42,27 +44,27 @@ s
     }, { SysID: this.sysid });
 
   }
-  hidePhoneNum(tel):string{
-     let mtel = tel.substr(0, 3) + '****' + tel.substr(7);
-     return mtel;
+  hidePhoneNum(tel): string {
+    let mtel = tel.substr(0, 3) + '****' + tel.substr(7);
+    return mtel;
   }
- 
-  execute(){
-    if(this.obj){
+
+  execute() {
+    if (this.obj) {
       let token = this.storage.get('token');
       let api = "v1/MemberShip/GivePresentPromptly/" + token;
-      this.httpService.requestData(api, (res) => {
+      this.httpService.doFormPost(api, { passiveUserId: this.obj['Id'], sendHeadId: this.navParams.get('sendHeadId') }, (res) => {
         if (res.error_code == 0) {
           this.noticeSer.showToast('赠送成功~');
-          this.navCtrl.pop();
+          this.callback().then(()=>{ this.navCtrl.pop() });
         } else if (res.error_code == 3) {
           //抢登处理
           this.rlogin.rLoginProcess(this.navCtrl);
         } else {
           this.noticeSer.showToast('只能赠送给免费会员');
         }
-      }, { passiveUserId: this.obj['Id'],sendHeadId: this.navParams.get('sendHeadId')});
-    }else{
+      });
+    } else {
       this.noticeSer.showToast('请先搜索众健号');
     }
   }

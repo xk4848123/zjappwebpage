@@ -51,7 +51,7 @@ export class SetpaypasswordPage {
   }
 
   getVerifyCode() {
-    let apiUrl = 'v1/LoginAndRegister/SendRegisterVerifyCode'
+    let apiUrl = 'v1/LoginAndRegister/SendRegisterVerifyCode';
     this.httpService.doPost(apiUrl, { phoneNum: this.phoneNum }, (res) => {
       if (res.error_code == 0) {//请求成功
         let button = this.el.nativeElement.querySelector('#button');
@@ -68,9 +68,7 @@ export class SetpaypasswordPage {
             clearInterval(this.interval);
           }
         }, 1000);
-      } else if (res.error_code == 3) {//token过期
-        this.rlogin.rLoginProcess(this.navCtrl);
-      }
+      } 
       else {
         this.noticeSer.showToast('服务异常：' + res.error_message);
       }

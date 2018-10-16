@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.zjwl.zjkj" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-    <name>众健商城3.0</name>
+<widget id="com.zhongjian.technologycal.mall" version="2.0.10" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <name>众健商城</name>
     <description>一款商城软件</description>
     <author email="hi@ionicframework" href="http://ionicframework.com/">Ionic Framework Team</author>
     <content src="index.html" />
@@ -91,12 +91,13 @@
         <variable name="APP_ID" value="2018011001747966" />
     </plugin>
     <plugin name="cordova-plugin-themeablebrowser" spec="^0.2.17" />
-    <plugin name="cordova-plugin-qqsdk" spec="^0.9.7">
-        <variable name="QQ_APP_ID" value="1106729276" />
+    <plugin name="cordova-plugin-jcore" spec="D:\dev\cordova-plugin-jcore-1.1.12" />
+    <plugin name="jpush-phonegap-plugin" spec="^3.3.2">
+        <variable name="APP_KEY" value="753f537a5c55d2f65efcfe55" />
     </plugin>
-    <plugin name="cordova-plugin-wechat" spec="https://github.com/wowgeeker/cordova-plugin-wechat">
-        <variable name="WECHATAPPID" value="wxf7999a70965260ef" />
+    <plugin name="cordova-plugin-wechat" spec="^2.1.0">
+        <variable name="WECHATAPPID" value="wx59a99bde3e454125" />
     </plugin>
-    <engine name="android" spec="6.4.0" />
     <engine name="ios" spec="4.5.5" />
+    <engine name="android" spec="6.4.0" />
 </widget>

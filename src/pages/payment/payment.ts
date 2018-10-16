@@ -19,12 +19,20 @@ declare let cordova;
 })
 export class PaymentPage {
 
+  private realpay;
+
+  private orderNo;
+
+  private orderType;
 
   public aliSignature = '';
 
   public way = 2;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private httpService: HttpServicesProvider, private storage: StorageProvider, private noticeSer: ToastProvider,private rloginprocess:RloginprocessProvider) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private httpService: HttpServicesProvider, private storage: StorageProvider, private noticeSer: ToastProvider, private rloginprocess: RloginprocessProvider) {
+    this.realpay = this.navParams.get('realpay');
+    this.orderNo = this.navParams.get('orderNo');
+    this.orderType = this.navParams.get('orderType');
   }
 
 
@@ -44,15 +52,16 @@ export class PaymentPage {
 
   alipay() {
     if (this.aliSignature == '') {
-      let token = this.storage.get('token');
-      this.httpService.doFormPost('/v1/MemberShip/createCOrder/' + token, { money: this.navParams.data.money }, (data) => {
-        if (data.error_code == 0) {//登录成功
+      this.httpService.doPost('/ali/createaliparam/', { total_fee: this.realpay,out_trade_no: this.orderNo,type:this.orderType}, (data) => {
+        if (data.error_code == 0) {
           this.aliSignature = data.data;//保存签名页面至页面退出
           let payInfo = this.unescapeHTML(data.data);
           cordova.plugins.alipay.payment(payInfo, (success) => {
             if (success.resultStatus === "9000") {
               this.noticeSer.showToast('支付成功');
-              this.navCtrl.pop();
+              this.navCtrl.push("PaysuccessPage",{
+                orderType: this.orderType
+              });
             } else {
               this.noticeSer.showToast('支付失败');
             }
@@ -60,9 +69,9 @@ export class PaymentPage {
             //支付失败
             this.noticeSer.showToast('支付失败');
           });
-        } else if(data.error_code == 3){
-            this.rloginprocess.rLoginProcess(this.navCtrl);
-        }else {
+        } else if (data.error_code == 3) {
+          this.rloginprocess.rLoginProcess(this.navCtrl);
+        } else {
           this.noticeSer.showToast(data.error_message);
 
         }
@@ -72,13 +81,15 @@ export class PaymentPage {
       cordova.plugins.alipay.payment(payInfo, (success) => {
         if (success.resultStatus === "9000") {
           this.noticeSer.showToast('支付成功');
-          this.navCtrl.pop();
+          this.navCtrl.push("PaysuccessPage",{
+            orderType: this.orderType
+          });
         } else {
           this.noticeSer.showToast('支付失败');
         }
       }, (error) => {
         //支付失败
-       
+
       });
     }
   }
