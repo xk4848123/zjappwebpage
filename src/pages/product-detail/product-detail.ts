@@ -1,5 +1,5 @@
 import { Component,ElementRef,Renderer2,ViewChild } from '@angular/core';
-import { IonicPage, NavController, NavParams,App,Content,ModalController, Modal } from 'ionic-angular';
+import { IonicPage, NavController, NavParams,App,Content,ModalController, Modal,Slides } from 'ionic-angular';
 import { HttpServicesProvider } from '../../providers/http-services/http-services';
 import { ConfigProvider } from '../../providers/config/config';
 import { AlertProvider } from '../../providers/alert/alert';
@@ -16,6 +16,7 @@ import { RloginprocessProvider } from '../../providers/rloginprocess/rloginproce
   templateUrl: 'product-detail.html',
 })
 export class ProductDetailPage {
+  @ViewChild(Slides) slides: Slides;
   @ViewChild(Content) content: Content;
   public id :(number);
   public product :(any);
@@ -34,6 +35,7 @@ export class ProductDetailPage {
   public usercode:(string);
 
   private modal:Modal;
+  private isSetSlides = false;
 
   constructor(public rlogin:RloginprocessProvider,private renderer2: Renderer2,public eleref:ElementRef,
     public navCtrl: NavController, public navParams: NavParams,public httpService: HttpServicesProvider,public config:ConfigProvider,
@@ -75,10 +77,24 @@ export class ProductDetailPage {
     this.focusList = []; 
     this.getFocus();
     this.getPicText();
+    this.setSlides();
   }
   ionViewWillLeave(){
     if(this.id!=undefined){
       this.storage.setSessionStorage("productId",this.id);
+    }
+  }
+  setSlides(){
+    if (this.slides) {
+      if(!this.isSetSlides){
+        this.slides.autoplayDisableOnInteraction = false;
+        this.isSetSlides = true;
+        console.log('设置');
+      }
+    }else{
+      setTimeout(() => {
+        this.setSlides();
+      }, 100);
     }
   }
   /**获取url中的父级邀请码 */
