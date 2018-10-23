@@ -8,6 +8,8 @@ import { HttpModule, JsonpModule } from '@angular/http';
 
 import { ImagePicker } from '@ionic-native/image-picker';
 import { FileTransfer, FileTransferObject } from '@ionic-native/file-transfer';
+import { AppVersion } from '@ionic-native/app-version';
+import { FileOpener } from '@ionic-native/file-opener';
 import { Camera } from '@ionic-native/camera';
 import { Device } from '@ionic-native/device';
 import { JPush } from '@jiguang-ionic/jpush';
@@ -140,6 +142,7 @@ import { VerifypasswordProvider } from '../providers/verifypassword/verifypasswo
 import { AddressmodelComponent } from '../components/addressmodel/addressmodel';
 import { JpushProvider } from '../providers/jpush/jpush';
 import { AppshareProvider } from '../providers/appshare/appshare';
+import { AppUpdateProvider } from '../providers/app-update/app-update';
 
 @NgModule({
   declarations: [
@@ -253,7 +256,9 @@ import { AppshareProvider } from '../providers/appshare/appshare';
     JPush,
     Device,
     ImagePicker,
+    AppVersion,
     FileTransferObject,
+    FileOpener,
     FileTransfer,
     AlertProvider,
     ClearloginProvider,
@@ -262,7 +267,8 @@ import { AppshareProvider } from '../providers/appshare/appshare';
     WeblinkProvider,
     VerifypasswordProvider,
     JpushProvider,
-    AppshareProvider
+    AppshareProvider,
+    AppUpdateProvider
   ]
 })
 export class AppModule {

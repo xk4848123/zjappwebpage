@@ -6,7 +6,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { TabsPage } from '../pages/tabs/tabs';
 import { ToastProvider } from '../providers/toast/toast';
 import { JpushProvider } from '../providers/jpush/jpush';
-
+import { AppUpdateProvider } from '../providers/app-update/app-update';
 @Component({
   templateUrl: 'app.html'
 })
@@ -14,20 +14,28 @@ export class MyApp {
   rootPage: any = TabsPage;
   backButtonPressed: boolean = false;  //用于判断返回键是否触发
   constructor(public app: App, public ionicApp: IonicApp, public platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, public keyboard: Keyboard, private noticSer: ToastProvider,
-    public jpush: JpushProvider) {
+    public jpush: JpushProvider, private appUpdateProvider: AppUpdateProvider) {
     platform.ready().then(() => {
+      //检测升级
+      appUpdateProvider.checkVersion().then((result) => {
+       if(result == -1){
+          this.noticSer.showToast("版本太旧，系统帮您自动升级！")
+          this.appUpdateProvider.download();
+          return;
+        }
+      });
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
       jpush.jPushInit(app);
       platform.registerBackButtonAction(() => {
-        this.registerBackButtonAction(this.ionicApp,this.app);
+        this.registerBackButtonAction(this.ionicApp, this.app);
       }, 1);
       statusBar.styleDefault();
       splashScreen.hide();
     });
   }
-  registerBackButtonAction(ionicApp: IonicApp,app:App) {
-    let nav:NavController = app.getActiveNav();
+  registerBackButtonAction(ionicApp: IonicApp, app: App) {
+    let nav: NavController = app.getActiveNav();
     if (this.keyboard.isOpen()) {//如果键盘开启则隐藏键盘
       this.keyboard.close();
       return;
