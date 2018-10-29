@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.zhongjian.technologycal.mall" version="2.0.11" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget id="com.zhongjian.technologycal.mall" version="2.0.12" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>众健商城</name>
     <description>一款商城软件</description>
     <author email="hi@ionicframework" href="http://ionicframework.com/">Ionic Framework Team</author>
