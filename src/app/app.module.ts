@@ -81,8 +81,6 @@ import { CommercialPageModule } from '../pages/commercial/commercial.module';
 //课程详情
 import { CommercialdetailPageModule } from '../pages/commercialdetail/commercialdetail.module';
 
-import { TitlePageModule } from '../pages/title/title.module';
-
 import { OrderlistPageModule } from '../pages/orderlist/orderlist.module';
 
 import { RechargePageModule } from '../pages/recharge/recharge.module';
@@ -205,7 +203,6 @@ import { AppUpdateProvider } from '../providers/app-update/app-update';
     ProxyapplyPageModule,
     SplitinitPageModule,
     SplitrecordPageModule,
-    TitlePageModule,
     SplitimmediatelyPageModule,
     SetattrPageModule,
     UpdatephonenumPageModule,

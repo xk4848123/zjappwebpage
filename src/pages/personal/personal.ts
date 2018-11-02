@@ -17,8 +17,6 @@ export class PersonalPage {
 
   public UpdatephonenumPage = 'UpdatephonenumPage';
 
-  public JpushPage = 'JpushPage';
-
   public userInfo = {
     userName: '',
     nickName: '',

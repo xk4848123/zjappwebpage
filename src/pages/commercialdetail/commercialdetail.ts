@@ -14,8 +14,6 @@ import { AlertController } from 'ionic-angular';
 
 import { DomSanitizer } from '@angular/platform-browser';
 
-
-import { TitlePage } from '../title/title';
 /**
  * Generated class for the CommercialdetailPage page.
  *
@@ -41,7 +39,6 @@ export class CommercialdetailPage {
     return this.sanitizer.bypassSecurityTrustHtml(strHTML);
   }
   ionViewDidLoad() {
-    console.log('ionViewDidLoad CommercialdetailPage');
   }
   ionViewWillEnter() {
     //课程详细主页
@@ -57,18 +54,12 @@ export class CommercialdetailPage {
           let api='v2/commercialcollege/coursehtmltext?' + 'courseid=' + this.curId; 
           this.httpService.requestData(api, (data) => {
             if(data.error_code==0){
-             this.tempData=data.data;
+             var reg = new RegExp("/upload","g");
+             var reg1 = new RegExp("https://appnew.zhongjianmall.com/","g");
+             this.tempData = data.data.replace(reg1,'').replace(reg,this.config.domain+"/upload");
             }else{
               this.toast.showToast('数据获取异常');
             }
           });
-  }
-  //课程详情页
-  pushDetail(curId){
-    this.navCtrl.push('TitlePage',{
-       curId:curId
-    })
-
-    
   }
 }
