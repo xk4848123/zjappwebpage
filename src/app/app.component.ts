@@ -21,7 +21,6 @@ export class MyApp {
       //检测升级
       this.appUpdateProvider.checkVersion().then((result) => {
         if (result == 0) {
-          this.noticeSer.showToast("已经是最新版本");
         } else if (result == -1) {
           this.noticeSer.showToast("该版本已不可使用，必须升级");
           this.appUpdateProvider.download();
