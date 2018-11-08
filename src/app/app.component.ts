@@ -7,23 +7,42 @@ import { TabsPage } from '../pages/tabs/tabs';
 import { ToastProvider } from '../providers/toast/toast';
 import { JpushProvider } from '../providers/jpush/jpush';
 import { AppUpdateProvider } from '../providers/app-update/app-update';
+import { AlertProvider } from '../providers/alert/alert';
+
 @Component({
   templateUrl: 'app.html'
 })
 export class MyApp {
   rootPage: any = TabsPage;
   backButtonPressed: boolean = false;  //用于判断返回键是否触发
-  constructor(public app: App, public ionicApp: IonicApp, public platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, public keyboard: Keyboard, private noticSer: ToastProvider,
-    public jpush: JpushProvider, private appUpdateProvider: AppUpdateProvider) {
+  constructor(public app: App, public ionicApp: IonicApp, public platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, public keyboard: Keyboard, private noticeSer: ToastProvider,
+    public jpush: JpushProvider, private appUpdateProvider: AppUpdateProvider, private alertProvider:AlertProvider) {
     platform.ready().then(() => {
       //检测升级
-      appUpdateProvider.checkVersion().then((result) => {
-       if(result == -1){
-          this.noticSer.showToast("版本太旧，系统帮您自动升级！")
+      this.appUpdateProvider.checkVersion().then((result) => {
+        if (result == 0) {
+          this.noticeSer.showToast("已经是最新版本");
+        } else if (result == -1) {
+          this.noticeSer.showToast("该版本已不可使用，必须升级");
           this.appUpdateProvider.download();
-          return;
+        } else if (result == 1) {
+          this.alertProvider.showAlert('发现新版本，您要升级吗？', '', [
+            {
+              text: '取消',
+              handler: () => {
+              }
+            },
+            {
+              text: '升级',
+              handler: () => {
+                this.appUpdateProvider.download();
+              }
+            }
+          ]);
+        } else {
+          this.noticeSer.showToast("发生错误");
         }
-      });
+      }, (err) => { this.noticeSer.showToast("发生错误") });
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
       jpush.jPushInit(app);
@@ -60,7 +79,7 @@ export class MyApp {
     if (this.backButtonPressed) { //当触发标志为true时，即2秒内双击返回按键则退出APP
       this.platform.exitApp();
     } else {
-      this.noticSer.showToast("再按一次返回退出众健商城")
+      this.noticeSer.showToast("再按一次返回退出众健商城")
       this.backButtonPressed = true;
       setTimeout(() => this.backButtonPressed = false, 2000);//2秒内没有再次点击返回则将触发标志标记为false
     }
